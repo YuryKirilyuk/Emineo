@@ -1,0 +1,34 @@
+/**
+Theme Name: Emineo Theme
+Author: ColorElephant
+Author URI: http://colorelephant.com
+Description: Theme for Emineo
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: emineo-theme
+Template: astra
+*/
+
+/*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
+@import url("../astra/style.css");
+@import url(custom.css);
+
+@import "utils/variables";
+@import "utils/mixins";
+//@import "utils/helpers";
+
+@import "layout/fonts";
+@import "layout/animation";
+@import "layout/common";
+@import "layout/partials";
+@import "layout/buttons";
+@import "layout/navbar";
+@import "layout/forms";
+@import "layout/modal";
+@import "layout/footer";
+
+@import "pages/home";
+
+
+/*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/

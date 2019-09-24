@@ -1,0 +1,78 @@
+#masthead {
+
+  .ast-container {
+    @media screen and (max-width: 1070px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .site-logo-img {padding-right: 0;}
+
+
+  .ast-mobile-menu-buttons {
+    @media screen and (max-width: 921px) {order: 3;}
+  }
+
+
+
+  .main-header-menu > .menu-item > a {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:hover {color: $green;}
+    @media screen and (min-width: 922px) and (max-width: 1250px) {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+  }
+
+
+  .icon-user {
+    @media screen and (min-width: 1351px) {margin-left: 6rem;}
+    a {
+      background: url('data:image/svg+xml;utf8,<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="4.5" r="3.5" stroke="%231E3258" stroke-width="2"/><path d="M1 15C1 13.3431 2.34315 12 4 12H12C13.6569 12 15 13.3431 15 15V17H1V15Z" stroke="%231E3258" stroke-width="2"/></svg>') no-repeat center;
+      color: transparent !important;
+      font-size: 0 !important;
+      width: 4rem;
+    }
+  }
+
+  li.ast-masthead-custom-menu-items {
+    @media screen and (min-width: 921px) and (max-width: 1350px) {padding: 0 .5rem;}
+  }
+
+  .menu-lang {
+    font-weight: 800;
+    text-transform: uppercase;
+    @media screen and (max-width: 921px) {order: 2;}
+    select {
+      background: none;
+      border: none;
+      padding: 1rem;
+    }
+  }
+
+  .btn {
+    align-items: center;
+    display: flex;
+    margin-left: 3rem;
+    @media screen and (max-width: 1300px) {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin-left: 1rem;
+      padding: 0 1rem;
+      width: 125px;
+    }
+    @media screen and (max-width: 980px) {
+      font-size: 1.2rem;
+      height: 50px;
+      line-height: 1.4;
+      margin-left: 1rem;
+      padding: 0 .5rem;
+      width: 95px;
+    }
+    @media screen and (max-width: 921px) {order: 1;}
+  }//.btn
+
+}//header

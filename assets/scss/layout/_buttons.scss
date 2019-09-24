@@ -1,0 +1,67 @@
+.btn,
+.elementor-widget-button .elementor-button-link,
+.elementor-widget-button a.elementor-button-link {
+  background: $green;
+  border-radius: 0;
+  color: #fff;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  &:hover {
+    background: darken($green, 5%);
+    color: #fff;
+  }
+}
+
+/*
+//MOBILE MENU BUTTON
+.menu-toggle {
+  background: none;
+  border: none;
+  position: relative;
+  height: 7rem;
+  width: 7rem;
+  @media screen and (min-width: 768px) {display: none;}
+  &:hover .navigation-icon:before {top: -1rem;}
+  &:hover .navigation-icon:after {top: 1rem;}
+  &.active .navigation-icon {
+    background-color: transparent;
+    &:before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+    &:after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+  }
+}//.menu-toggle
+
+.navigation-icon {
+  margin-top: 3.5rem;
+  position: relative;
+  &,
+  &:before,
+  &:after {
+    background-color: #333;
+    display: inline-block;
+    height: 2px;
+    width: 3rem;
+  }
+  &:before,
+  &:after {
+    content: "";
+    left: 0;
+    position: absolute;
+    transition: $default-transition;
+  }
+  &:before {top: -.8rem;}
+  &:after {top: .8rem;}
+}//.navigation-icon
+*/
