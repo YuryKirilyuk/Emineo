@@ -138,6 +138,18 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-support .elementor-image img { height: 200px; -o-object-fit: cover; object-fit: cover; }
 
+.section-page-title { -webkit-align-items: center; -ms-flex-align: center; align-items: center; background-color: #F0F0F0; background-position: right center; background-repeat: no-repeat; display: -webkit-flex; display: -ms-flexbox; display: flex; height: 361px; }
+
+.section-page-title .elementor-page-title { margin-bottom: 12px; }
+
+.section-page-title .elementor-heading-title { color: #1E3258 !important; font-family: "Gilroy", sans-serif; font-weight: 800; font-size: 48px; line-height: 1.22; position: relative; text-transform: uppercase; }
+
+.section-page-title .elementor-heading-title:before { bottom: 100%; content: '<_'; display: block; left: 0; position: absolute; }
+
+.section-page-title .elementor-text-editor { color: #68AF7C; font-size: 20px; }
+
+.section-page-title .elementor-text-editor p { margin-bottom: 0; }
+
 .btn, .elementor-widget-button .elementor-button-link, .elementor-widget-button a.elementor-button-link { background: #68AF7C; border-radius: 0; color: #fff; display: inline-block; font-family: "Gilroy", sans-serif; font-size: 1.6rem; font-weight: bold; height: 60px; line-height: 60px; padding: 0 2.5rem; text-align: center; text-transform: uppercase; }
 
 .btn:hover, .elementor-widget-button .elementor-button-link:hover, .elementor-widget-button a.elementor-button-link:hover { background: #58a66e; color: #fff; }

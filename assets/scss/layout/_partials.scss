@@ -155,3 +155,39 @@ h1,h2,h3,h4,h5,h6 {
   }
 
 }//.section-support
+
+
+.section-page-title {
+  align-items: center;
+  background-color: #F0F0F0;
+  background-position: right center;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 361px;
+
+  .elementor-page-title {margin-bottom: 12px;}
+
+  .elementor-heading-title {
+    color: $blue-dark !important;
+    font-family: $base-font-family;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1.22;
+    position: relative;
+    text-transform: uppercase;
+    &:before {
+      bottom: 100%;
+      content: '<_';
+      display: block;
+      left: 0;
+      position: absolute;
+    }
+  }
+
+  .elementor-text-editor {
+    color: $green;
+    font-size: 20px;
+    p {margin-bottom: 0;}
+  }
+
+}//.section-page-title

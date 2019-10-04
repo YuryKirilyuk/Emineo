@@ -189,7 +189,7 @@ function process_jobs_feed($url){
     return '';
 }
 
-
+/*
 add_action('wp', function(){
     if(is_page('home')){
         $url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
@@ -197,7 +197,7 @@ add_action('wp', function(){
         echo '<pre>';print_r($jobs);echo '</pre>';
     }
 });
-
+*/
 
 
 function Generate_job() {
@@ -207,12 +207,31 @@ function Generate_job() {
 
     $out = '
 	<div class="job-category">_' . $jobs['Criteria']['Deparment'] . '</div>
-        <h3 class="job-title">' . $jobs['Job Details']['Title of job'] . '</h3>
-        <div class="job-location">' . $jobs['Criteria']['Work location'] . '</div>
-        <div class="job-description">' . $jobs['Job Details']['Short description'] . '</div>
-        <a class="btn-link" href="' . $jobs['Application URL'] . '">Mehr Erfahren</a>
+    <h3 class="job-title">' . $jobs['Job Details']['Title of job'] . '</h3>
+    <div class="job-location">' . $jobs['Criteria']['Work location'] . '</div>
+    <div class="job-description">' . $jobs['Job Details']['Short description'] . '</div>
+    <a class="btn-link" href="' . $jobs['Application URL'] . '">Mehr Erfahren</a>
 	';
 
     return $out;
 }
 add_shortcode('job', 'Generate_job');
+
+
+function show_breadcrumbs() {
+    $parents_id = array_reverse(get_ancestors(get_the_ID(), 'page'));
+    $out = '<div class="breadcrumbs">
+               <a href="' . get_site_url() . '">Home</a> 
+               <span class="separator">/</span>
+           ';
+    if($parents_id) {
+        foreach($parents_id as $page_id) {
+            $out .= '<a href="'. get_permalink($page_id) .'">'. get_the_title($page_id) .'</a>
+                     <span class="separator">/</span>
+                     ';
+        }
+    }
+    $out .= '<span class="current-page">' . get_the_title() . '</span></div>';
+    return $out;
+}
+add_shortcode('breadcrumbs', 'show_breadcrumbs');
