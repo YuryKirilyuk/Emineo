@@ -150,6 +150,14 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-page-title .elementor-text-editor p { margin-bottom: 0; }
 
+.section-breadcrumbs { background: #1E3258; padding: 25px 0; }
+
+.section-breadcrumbs .breadcrumbs { color: #787C85; font-size: 16px; font-weight: bold; line-height: 1.68; }
+
+.section-breadcrumbs .breadcrumbs a:hover { color: #fff; }
+
+.section-breadcrumbs .breadcrumbs .current-page { color: #D6501F; }
+
 .btn, .elementor-widget-button .elementor-button-link, .elementor-widget-button a.elementor-button-link { background: #68AF7C; border-radius: 0; color: #fff; display: inline-block; font-family: "Gilroy", sans-serif; font-size: 1.6rem; font-weight: bold; height: 60px; line-height: 60px; padding: 0 2.5rem; text-align: center; text-transform: uppercase; }
 
 .btn:hover, .elementor-widget-button .elementor-button-link:hover, .elementor-widget-button a.elementor-button-link:hover { background: #58a66e; color: #fff; }
