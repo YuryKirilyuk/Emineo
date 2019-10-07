@@ -6,7 +6,7 @@
 }//.section-hero
 
 
-.section-text {
+.home .section-text {
   .elementor-col-33 {
     @media screen and (min-width: 1025px) {
       margin-right: 4.7%;
@@ -376,7 +376,7 @@
 }//.section-jobs
 
 
-.section-image {
+.home .section-image {
   padding: 260px 0;
   @media screen and (max-width: 768px) {padding: 200px 0;}
   @media screen and (max-width: 480px) {padding: 100px 0;}
@@ -582,6 +582,7 @@
         line-height: 1.58;
       }
     }
+
   }//.elementor-post
 }//.section-news
 

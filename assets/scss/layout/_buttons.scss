@@ -1,6 +1,6 @@
 .btn,
-.elementor-widget-button .elementor-button-link,
-.elementor-widget-button a.elementor-button-link {
+.elementor-widget-button:not(.download-link) .elementor-button-link,
+.elementor-widget-button:not(.download-link) a.elementor-button-link {
   background: $green;
   border-radius: 0;
   color: #fff;
@@ -18,6 +18,46 @@
     color: #fff;
   }
 }
+
+
+
+.download-link {
+
+  .elementor-icon-box-wrapper {display: flex;}
+  .elementor-icon-box-icon {
+    flex-shrink: 0;
+    height: 58px;
+    margin-right: 15px;
+    width: 45px;
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .elementor-icon-box-content {
+    text-align: left;
+    .elementor-icon-box-title {
+      color: $blue-dark;
+      font-family: $base-font-family;
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 1.25;
+      margin-bottom: 5px;
+      max-width: 25rem;
+      &:hover {color: $green;}
+    }
+    .elementor-icon-box-description {
+      color: $blue-dark;
+      font-family: $base-font-family;
+      font-size: 1.4rem;
+    }
+  }
+
+}//.download-link
+
+
+
 
 /*
 //MOBILE MENU BUTTON

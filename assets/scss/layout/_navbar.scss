@@ -27,6 +27,13 @@
     }
   }
 
+  .main-header-menu .current-menu-ancestor > a {color: $blue-dark;}
+  .main-header-menu.submenu-with-border .sub-menu {
+    a {
+      color: $blue-dark;
+      &:hover {color: $green;}
+    }
+  }
 
   .icon-user {
     @media screen and (min-width: 1351px) {margin-left: 6rem;}

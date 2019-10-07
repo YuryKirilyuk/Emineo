@@ -39,4 +39,9 @@ jQuery(function($){
         $('.section-support').toggleClass('show');
     });
 
+	$('.section-services .elementor-inner-column').on('mouseenter mouseleave', function() {
+        $(this).find('.elementor-icon-box-description').slideToggle();
+        $(this).find('.elementor-widget-button').slideToggle();
+    });
+
 });
