@@ -523,7 +523,8 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-services { min-height: 250px; z-index: 1; }
 
-@media screen and (min-width: 769px) { .section-services .services-list .elementor-row { top: 0; left: 0; position: absolute; width: 100%; } }
+@media screen and (min-width: 769px) { .section-services { margin-top: -175px; }
+  .section-services .services-list .elementor-row { top: 0; left: 0; position: absolute; width: 100%; } }
 
 .section-services .elementor-heading-title { margin-bottom: 2rem; }
 
