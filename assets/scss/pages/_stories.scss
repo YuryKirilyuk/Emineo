@@ -1,0 +1,109 @@
+
+// SUCCESS STORIES
+
+.success-stories-content {
+  font-family: 'Gilroy', sans-serif;
+
+  .stories-nav {
+    .elementor-nav-menu__container {
+      .elementor-nav-menu {
+        > .menu-item {
+          font-family: 'Gilroy', sans-serif;
+
+          > .elementor-item {
+            background: $grey-light;
+
+            .sub-arrow {
+              position: absolute;
+              right: 20px;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+              display: flex !important;
+              align-items: center;
+
+              i {
+                display: none;
+              }
+
+              &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #68AF7C;
+                transition: all .5s;
+              }
+            }
+          }
+
+          &.active {
+            > .elementor-item {
+              .sub-arrow {
+                &:after {
+                  transform: rotate(180deg);
+                }
+              }
+            }
+
+            .sub-menu {
+              display: block !important;
+            }
+          }
+
+          .sub-menu {
+            display: none !important;
+            margin: 0 !important;
+            padding: 10px 0;
+            position: static;
+            width: 100%;
+
+            a {
+              border: none;
+
+              font-family: 'Gilroy', sans-serif;
+              padding: 5px 0 5px 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .stories-posts {
+    .elementor-post {
+      .elementor-post__thumbnail__link {
+        margin-bottom: 0;
+      }
+
+      .elementor-post__text {
+
+        font-family: 'Gilroy', sans-serif;
+        padding-bottom: 20px;
+      }
+
+      .elementor-post__title {
+        background: #1E3258;
+
+        font-family: 'Gilroy', sans-serif;
+        margin: 0 -20px 15px;
+        padding: 10px 20px;
+
+        a {
+          color: #fff;
+        }
+      }
+
+      .elementor-post__meta-data {
+        color: #fff;
+        font-family: 'Gilroy', sans-serif;
+        line-height: 40px;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}

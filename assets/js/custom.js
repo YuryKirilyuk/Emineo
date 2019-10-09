@@ -44,4 +44,10 @@ jQuery(function($){
         $(this).find('.elementor-widget-button').slideToggle();
     });
 
+    $('.js-toggle-list > a').on('click', function(e){
+        e.preventDefault();
+        $(this).closest('.js-toggle-list').toggleClass('active');
+        $(this).find('.sub-menu').slideToggle();
+    })
+
 });
