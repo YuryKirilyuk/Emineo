@@ -576,7 +576,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-success-stories .elementor-post__badge img { max-width: 100%; height: auto; max-height: 100%; }
 
-.section-ansprechpartner .elementor-widget-image-box { border-bottom: 2px solid #fff; padding-bottom: 30px; }
+.section-ansprechpartner .elementor-widget-image-box { border-bottom: 2px solid #fff; padding-bottom: 30px; padding-top: 12px; }
 
 .section-ansprechpartner .elementor-widget-image-box .elementor-image-box-img { margin-bottom: 30px !important; }
 
@@ -588,7 +588,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-ansprechpartner .elementor-text-editor p:last-child { margin-bottom: 0; }
 
-.section-ansprechpartner .elementor-widget-social-icons { margin-bottom: 40px; }
+.section-ansprechpartner .elementor-widget-social-icons { margin-bottom: 40px !important; }
 
 .section-ansprechpartner .elementor-button-link { max-width: 220px; margin-bottom: 10px; width: 100%; }
 
