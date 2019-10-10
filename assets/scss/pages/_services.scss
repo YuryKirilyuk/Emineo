@@ -3,8 +3,6 @@
 }//.service-page
 
 
-
-
 .section-text {
   .elementor-col-33 {
     @media screen and (min-width: 1025px) {
@@ -27,7 +25,6 @@
 .elementor-text-editor ul {
   margin-left: 20px;
 }
-
 
 
 .section-services {
@@ -85,7 +82,6 @@
   }
 
 }//.section-services
-
 
 
 .elementor-widget-image-carousel {
@@ -173,8 +169,57 @@
   }
 
   .elementor-post__badge {
-
+    background-color: #E1E2E9 !important;
+    border-radius: 0 !important;
+    height: 60px;
+    margin: 0 !important;
+    padding: 0;
+    text-align: center;
+    width: 148px;
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+    }
   }
 
 }//.section-success-stories
 
+
+.section-ansprechpartner {
+
+  .elementor-widget-image-box {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 30px;
+
+    .elementor-image-box-img {
+      margin-bottom: 30px !important;
+    }
+    .elementor-image-box-title,
+    .elementor-image-box-description {
+      font-family: $base-font-family;
+      margin-bottom: 0;
+    }
+
+  }//.elementor-widget-image-box
+
+  .elementor-text-editor {
+    a {
+      display: inline-block;
+      margin-bottom: 10px;
+      &:hover {color: $green;}
+    }
+    p:last-child {margin-bottom: 0;}
+  }
+
+  .elementor-widget-social-icons {
+    margin-bottom: 40px;
+  }
+
+  .elementor-button-link {
+    max-width: 220px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+}//.section-ansprechpartner
