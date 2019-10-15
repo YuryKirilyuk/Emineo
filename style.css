@@ -395,13 +395,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 @media screen and (min-width: 769px) { .section-jobs .elementor-row { -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; } }
 
-@media screen and (min-width: 769px) { .section-jobs .jobs-list .elementor-row .elementor-column { width: 32%; } }
-
-@media screen and (min-width: 1025px) { .section-jobs .jobs-list .elementor-row .elementor-column { width: 31%; } }
-
 @media screen and (max-width: 768px) { .section-jobs .jobs-list .elementor-row .elementor-column { padding: 10px 0; } }
 
-.section-jobs .jobs-list .elementor-row .elementor-column .elementor-element { background: #EFF1F4; padding: 15px; }
+.section-jobs .jobs-list .elementor-row .elementor-column .elementor-element { padding: 15px; }
 
 @media screen and (min-width: 980px) { .section-jobs .jobs-list .elementor-row .elementor-column .elementor-element { padding: 30px; } }
 
@@ -621,6 +617,36 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 .success-stories-content .stories-posts .elementor-post .elementor-post__title a { color: #fff; }
 
 .success-stories-content .stories-posts .elementor-post .elementor-post__meta-data { color: #fff; font-family: 'Gilroy', sans-serif; line-height: 40px; padding: 20px; position: absolute; top: 0; right: 0; }
+
+.single-story { background: #fff; }
+
+.single-story .wichtigste-in-kurze .elementor-widget-wrap { background: #EFF1F4; padding: 50px; }
+
+.single-story .key-facts .elementor-widget-wrap { padding-top: 50px; }
+
+@media screen and (min-width: 769px) { .single-story .key-facts .elementor-image-box-wrapper { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: row-reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; } }
+
+@media screen and (min-width: 769px) { .single-story .key-facts .elementor-image-box-wrapper .elementor-image-box-img { margin-bottom: 0 !important; } }
+
+.single-story .key-facts .elementor-image-box-wrapper .elementor-image-box-content { margin-right: 15px; white-space: nowrap; width: auto; }
+
+.single-story .key-facts ul { color: #68AF7C; font-family: "Gilroy", sans-serif; font-size: 16px; font-weight: bold; list-style: none; margin-left: 0; text-transform: uppercase; }
+
+.single-story .key-facts ul li { padding: 5px 0 5px 15px; position: relative; }
+
+.single-story .key-facts ul li:before { border-left: 7px solid #68AF7C; border-top: 7px solid transparent; border-bottom: 7px solid transparent; content: ''; left: 0; position: absolute; top: 10px; }
+
+.single-story .elementor-text-editor { color: #1E3258; font-size: 16px; line-height: 1.68; }
+
+.single-story .elementor-text-editor h3 { color: #1E3258; font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 23px; }
+
+.single-story .elementor-post__card { background: none; }
+
+.single-story .section-socials:before, .single-story .section-socials:after { background: #e0e2e9; bottom: 0; content: ''; position: absolute; top: 0; width: 100%; }
+
+.single-story .section-socials:before { right: 100%; }
+
+.single-story .section-socials:after { left: 100%; }
 
 /*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
 

@@ -316,13 +316,13 @@
     .elementor-row {
 
       .elementor-column {
-        @media screen and (min-width: 769px) {width: 32%;}
-        @media screen and (min-width: 1025px) {width: 31%;}
+        //@media screen and (min-width: 769px) {width: 32%;}
+        //@media screen and (min-width: 1025px) {width: 31%;}
         @media screen and (max-width: 768px) {padding: 10px 0;}
       }
 
      .elementor-column .elementor-element {
-       background: #EFF1F4;
+       //background: #EFF1F4;
        padding: 15px;
        @media screen and (min-width: 980px) {padding: 30px;}
        @media screen and (max-width: 768px) {padding: 10px;}
