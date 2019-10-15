@@ -46,8 +46,8 @@ jQuery(function($){
 
     $('.js-toggle-list > a').on('click', function(e){
         e.preventDefault();
-        $(this).closest('.js-toggle-list').toggleClass('active');
-        $(this).find('.sub-menu').slideToggle();
+        //$(this).closest('.js-toggle-list').toggleClass('current');
+        //$(this).find('.sub-menu').slideToggle();
     })
 
 });

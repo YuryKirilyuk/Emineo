@@ -2,16 +2,17 @@
 // SUCCESS STORIES
 
 .success-stories-content {
-  font-family: 'Gilroy', sans-serif;
+  font-family: $base-font-family;
 
   .stories-nav {
     .elementor-nav-menu__container {
       .elementor-nav-menu {
         > .menu-item {
-          font-family: 'Gilroy', sans-serif;
+          font-family: $base-font-family;
 
           > .elementor-item {
             background: $grey-light;
+            &:hover {background: darken($grey-light, 5%);}
 
             .sub-arrow {
               position: absolute;
@@ -22,82 +23,104 @@
               display: flex !important;
               align-items: center;
 
-              i {
-                display: none;
-              }
+              i {display: none;}
 
               &:after {
                 content: '';
                 width: 0;
                 height: 0;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-bottom: 10px solid #68AF7C;
-                transition: all .5s;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+                border-bottom: 10px solid $green;
+                transition: $default-transition;
               }
             }
           }
 
-          &.active {
-            > .elementor-item {
-              .sub-arrow {
-                &:after {
-                  transform: rotate(180deg);
-                }
-              }
-            }
 
-            .sub-menu {
-              display: block !important;
+          > .elementor-item.highlighted {
+            .sub-arrow {
+              &:after {transform: rotateX(180deg);}
+            }
+            + .sub-menu {
+              //display: block !important;
             }
           }
+
 
           .sub-menu {
-            display: none !important;
+            //display: none !important;
             margin: 0 !important;
             padding: 10px 0;
             position: static;
             width: 100%;
-
             a {
               border: none;
 
-              font-family: 'Gilroy', sans-serif;
+              font-family: $base-font-family;
               padding: 5px 0 5px 20px;
             }
           }
+        }//> .menu-item
+      }//.elementor-nav-menu
+    }//.elementor-nav-menu__container
+  }//.stories-nav
+
+  .stories-posts {
+
+    &.elementor-posts__hover-gradient .elementor-post__card {
+      .elementor-post__thumbnail__link:after {
+        background: rgba(30,50,88,.4);
+      }
+      &:hover {
+        .elementor-post__thumbnail__link:after {
+          opacity: 0;
         }
       }
     }
-  }
 
-  .stories-posts {
     .elementor-post {
+
+
       .elementor-post__thumbnail__link {
         margin-bottom: 0;
       }
 
+      .elementor-post__badge {
+        font-family: $base-font-family;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
       .elementor-post__text {
 
-        font-family: 'Gilroy', sans-serif;
+        font-family: $base-font-family;
         padding-bottom: 20px;
       }
 
       .elementor-post__title {
-        background: #1E3258;
-
-        font-family: 'Gilroy', sans-serif;
+        background: $blue-dark;
+        font-family: $base-font-family;
         margin: 0 -20px 15px;
-        padding: 10px 20px;
+        padding: 8px 20px;
 
         a {
           color: #fff;
+          font-family: $base-font-family;
+          font-size: 21px;
         }
+      }
+
+      .elementor-post__excerpt p {
+        color: $blue-dark;
+        font-family: $base-font-family;
+        font-size: 16px;
+        line-height: 1.68;
       }
 
       .elementor-post__meta-data {
         color: #fff;
-        font-family: 'Gilroy', sans-serif;
+        font-family: $base-font-family;
         line-height: 40px;
         padding: 20px;
         position: absolute;
@@ -106,4 +129,4 @@
       }
     }
   }
-}
+}//.success-stories-content
