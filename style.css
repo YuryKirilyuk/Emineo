@@ -700,7 +700,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .karriere .swiper-container .single-job-container { padding: 0; }
 
-.karriere .swiper-container .single-job-inner-container { background-color: #EFF1F4; padding: 25px; }
+.karriere .swiper-container .single-job-inner-container { background-color: #EFF1F4; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; padding: 25px; }
+
+.karriere .swiper-container .single-job-inner-container .job-location { width: 100%; }
 
 .karriere .swiper-container + .swiper-pagination { -webkit-order: 2; -ms-flex-order: 2; order: 2; position: relative; }
 

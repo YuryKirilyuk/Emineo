@@ -25,7 +25,15 @@
 
     .single-job-inner-container {
       background-color: #EFF1F4;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       padding: 25px;
+
+      .job-location {
+        width: 100%;
+      }
+
     }
 
     + .swiper-pagination {
