@@ -50,4 +50,19 @@ jQuery(function($){
         //$(this).find('.sub-menu').slideToggle();
     })
 
+
+
+    //initialize swiper when document ready
+    var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        //direction: 'vertical',
+        loop: true
+    })
+
+
+
+
+
+
+
 });

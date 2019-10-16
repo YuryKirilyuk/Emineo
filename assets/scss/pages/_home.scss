@@ -216,6 +216,7 @@
           margin-bottom: 30px;
         }
         .elementor-image-box-title {
+          font-family: $base-font-family;
           font-size: 18px;
           font-weight: 800;
           margin-bottom: 0;
@@ -253,6 +254,41 @@
   }//.section-jobs-title
 
 
+  &:not(.karriere) .jobs-list-main-container {
+    margin-top: 30px;
+    display: inline-block;
+
+    .single-job-col-4 {
+      float: left;
+      width: 33.33%;
+      height: 100%;
+      @media(max-width: 480px) {width: 100%;}
+    }
+
+    .single-job-col-4:nth-child(3n + 1) {clear: both;}
+    .single-job-container {padding: 10px;}
+
+    .single-job-col-4:nth-child(3n + 1) .single-job-container {
+      padding-left: 0;
+      @media(max-width: 480px) {padding-left: 10px;}
+    }
+
+    .single-job-col-4:nth-child(3n) .single-job-container {
+      padding-right: 0;
+      @media(max-width: 480px) {padding-right: 10px;}
+    }
+
+    .single-job-inner-container {
+      background-color: #EFF1F4;
+      padding: 25px;
+    }
+
+  }//.jobs-list-main-container
+
+
+
+
+
   .job-category {
     border: 2px solid;
     display: inline-block;
@@ -261,6 +297,15 @@
     line-height: 1.83;
     margin-bottom: 20px;
     padding: 1px 7px 0;
+    text-transform: uppercase;
+  }
+
+  &:not(.karriere) .job-online-from {display: none;}
+  .job-online-from {
+    color: #787C85;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 2.58;
     text-transform: uppercase;
   }
 
@@ -316,13 +361,10 @@
     .elementor-row {
 
       .elementor-column {
-        //@media screen and (min-width: 769px) {width: 32%;}
-        //@media screen and (min-width: 1025px) {width: 31%;}
         @media screen and (max-width: 768px) {padding: 10px 0;}
       }
 
      .elementor-column .elementor-element {
-       //background: #EFF1F4;
        padding: 15px;
        @media screen and (min-width: 980px) {padding: 30px;}
        @media screen and (max-width: 768px) {padding: 10px;}

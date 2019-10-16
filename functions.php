@@ -195,7 +195,7 @@ function process_jobs_feed($url){
 	}
 	return [];
 }
-/*
+
  add_action('wp', function(){
  	if(is_page('jobs-feed')){
  		$url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
@@ -203,7 +203,8 @@ function process_jobs_feed($url){
  		echo '<pre>';print_r($jobs);echo '</pre>';
  	}
  });
-*/
+
+
 
 function Generate_job($atts) {
 
@@ -212,7 +213,8 @@ function Generate_job($atts) {
 		'offset' => '0',
 		'mode' => 'light',
 		'posid' => '',
-		'exclude_posid' => ''
+		'exclude_posid' => '',
+        'layout' => ''
 	), $atts );
 
     $url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
@@ -262,8 +264,16 @@ function Generate_job($atts) {
 	}
 
 	if($jobs) {
+	    $i=0;//for counting job items (for 'karriere' page)
 		foreach($jobs as $job) {
 			if($a['mode'] == 'light') {
+
+			    //wrapper for job items in 'karriere' page (4 jobs in a slide)
+                if($a['layout'] == 'slider' && $i == 0) {
+                    //$out .= '<div class="slide-container">';
+                }
+                /////////////////////////////////////
+
 				$out .= '
 				<div class="single-job-col-4">
 					<div class="single-job-container">
@@ -273,6 +283,7 @@ function Generate_job($atts) {
 
 			$out .= '
 				<div class="job-category">_' . $job['Criteria']['Deparment'] . '</div>
+				<div class="job-online-from">Online seit: ' . $job['Last Modified'] . '</div>
 				<h3 class="job-title">' . $job['Job Details']['Title of job'] . '</h3>
 				<div class="job-location">' . $job['Criteria']['Work location'] . '</div>
 				<div class="job-description">' . $job['Job Details']['Short description'] . '</div>
@@ -286,59 +297,25 @@ function Generate_job($atts) {
 				</div>
 				';
 			}
+
+            //end of the wrapper for job items in 'karriere' page
+            if($a['layout'] == 'slider' && $i == 3) {
+                //$out .= '</div><!-- //.slide-container -->';
+            }
+            $i == 3 ? $i = 0 : $i++;
+            /////////////////////////////////////
 		}
+
+        // end of the wrapper for job items in 'karriere' page
+        // closing tag for cases then there are less than 4 jobs in a slide
+        if($a['layout'] == 'slider' && $i < 4) {
+            //$out .= '</div><!-- //.slide-container -->';
+        }
+        /////////////////////////////////////
 
 		if($a['mode'] == 'light') {
 		$out .= '
-		</div>
-
-		<style>
-		.jobs-list-main-container .single-job-col-4 {
-			float: left;
-			width: 33.33%;
-			/* display: table-cell; */
-			height: 100%;
-		}
-		
-		.jobs-list-main-container .single-job-col-4:nth-child(3n + 1) {
-			clear: both;
-		}
-		
-		.jobs-list-main-container .single-job-container {
-			padding: 10px;
-		}
-		
-		.jobs-list-main-container .single-job-col-4:nth-child(3n + 1) .single-job-container {
-			padding-left: 0;
-		}
-		
-		.jobs-list-main-container .single-job-col-4:nth-child(3n) .single-job-container {
-			padding-right: 0;
-		}
-		
-		.jobs-list-main-container .single-job-inner-container {
-			background-color: #EFF1F4;
-			padding: 25px;
-		}
-		
-		.jobs-list-main-container {
-			margin-top: 30px;
-			display: inline-block;
-		}
-
-		@media(max-width: 480px) {
-			.jobs-list-main-container .single-job-col-4 {
-				width: 100%;
-			}
-			.jobs-list-main-container .single-job-col-4:nth-child(3n + 1) .single-job-container {
-				padding-left: 10px;
-			}
-			
-			.jobs-list-main-container .single-job-col-4:nth-child(3n) .single-job-container {
-				padding-right: 10px;
-			}
-		}
-		</style>
+		</div><!-- //.elementor-row1.jobs-list-main-container -->
 		';
 		}
 	}
@@ -349,20 +326,8 @@ add_shortcode('job', 'Generate_job');
 
 
 function show_breadcrumbs() {
-    $parents_id = array_reverse(get_ancestors(get_the_ID(), 'page'));
-    $out = '<div class="breadcrumbs">
-               <a href="' . get_site_url() . '">Home</a> 
-               <span class="separator">/</span>
-           ';
-    if($parents_id) {
-        foreach($parents_id as $page_id) {
-            $out .= '<a href="'. get_permalink($page_id) .'">'. get_the_title($page_id) .'</a>
-                     <span class="separator">/</span>
-                     ';
-        }
-    }
-    $out .= '<span class="current-page">' . get_the_title() . '</span></div>';
-    return $out;
+
+    astra_get_breadcrumb();
 }
 add_shortcode('breadcrumbs', 'show_breadcrumbs');
 

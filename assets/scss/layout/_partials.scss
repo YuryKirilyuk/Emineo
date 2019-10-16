@@ -168,6 +168,10 @@ h1,h2,h3,h4,h5,h6 {
 
   .elementor-page-title {margin-bottom: 12px;}
 
+  .elementor-container {
+    width: 100%;
+  }
+
   .elementor-heading-title {
     color: $blue-dark !important;
     font-family: $base-font-family;
@@ -196,17 +200,22 @@ h1,h2,h3,h4,h5,h6 {
 
 
 .section-breadcrumbs {
-  //background: $blue-dark;
   padding: 25px 0;
+  &.dark {background: $blue-dark;}
 
   .breadcrumbs {
     color: #787C85;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.68;
-    a:hover {color: #fff;}
+    a:hover {color: $green;}
 
-    .current-page {
+    .trail-items li::after {
+      content: '/';
+    }
+
+    .current-page,
+    .trail-end{
       color: $red;
     }
   }//.breadcrumbs

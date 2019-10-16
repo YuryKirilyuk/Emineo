@@ -35,6 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php wp_footer(); ?>
 
+    <script src="<?php bloginfo('stylesheet_directory');?>/assets/js/swiper.min.js" ></script>
     <script src="<?php bloginfo('stylesheet_directory');?>/assets/js/custom.js" ></script>
 
 	</body>

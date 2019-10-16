@@ -16,15 +16,18 @@
 
 
 
-  .main-header-menu > .menu-item > a {
-    font-size: 1.6rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    &:hover {color: $green;}
-    @media screen and (min-width: 922px) and (max-width: 1250px) {
-      padding-left: .5rem;
-      padding-right: .5rem;
+  .main-header-menu > .menu-item {
+    > a {
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      &:hover {color: $green;}
+      @media screen and (min-width: 922px) and (max-width: 1250px) {
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
     }
+    &.current-menu-item > a {color: $green;}
   }
 
   .main-header-menu .current-menu-ancestor > a {color: $blue-dark;}
