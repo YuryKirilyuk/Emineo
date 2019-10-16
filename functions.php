@@ -264,18 +264,19 @@ function Generate_job($atts) {
 	}
 
 	if($jobs) {
-	    $i=0;//for counting job items (for 'karriere' page)
+	    // Slider on 'Karriere' page
+        if($a['layout'] == 'slider') {
+            $out .= '
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+            ';
+        }
 		foreach($jobs as $job) {
 			if($a['mode'] == 'light') {
 
-			    //wrapper for job items in 'karriere' page (4 jobs in a slide)
-                if($a['layout'] == 'slider' && $i == 0) {
-                    //$out .= '<div class="slide-container">';
-                }
-                /////////////////////////////////////
 
 				$out .= '
-				<div class="single-job-col-4">
+				<div class="single-job-col-4 swiper-slide">
 					<div class="single-job-container">
 						<div class="single-job-inner-container">
 				';
@@ -298,24 +299,23 @@ function Generate_job($atts) {
 				';
 			}
 
-            //end of the wrapper for job items in 'karriere' page
-            if($a['layout'] == 'slider' && $i == 3) {
-                //$out .= '</div><!-- //.slide-container -->';
-            }
-            $i == 3 ? $i = 0 : $i++;
-            /////////////////////////////////////
 		}
 
-        // end of the wrapper for job items in 'karriere' page
-        // closing tag for cases then there are less than 4 jobs in a slide
-        if($a['layout'] == 'slider' && $i < 4) {
-            //$out .= '</div><!-- //.slide-container -->';
+        if($a['layout'] == 'slider') {
+            $out .= '
+                    </div><!-- //.swiper-container -->
+                </div><!-- //.swiper-wrapper -->
+                
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev">Prev</div>
+                <div class="swiper-button-next">Next</div>
+            ';
         }
-        /////////////////////////////////////
 
 		if($a['mode'] == 'light') {
 		$out .= '
-		</div><!-- //.elementor-row1.jobs-list-main-container -->
+		    </div><!-- //.elementor-row1.jobs-list-main-container -->
 		';
 		}
 	}

@@ -11,7 +11,6 @@ Template: astra
 */
 /*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
 @import url("../astra/style.css");
-@import url(assets/css/swiper.min.css);
 @import url(custom.css);
 @font-face { font-family: 'Gilroy'; src: url("assets/fonts/Gilroy-Thin.eot"); src: local("Gilroy Thin"), local("Gilroy-Thin"), url("assets/fonts/Gilroy-Thin.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Gilroy-Thin.woff") format("woff"), url("assets/fonts/Gilroy-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; }
 
@@ -691,23 +690,47 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-branchenfokus.karriere-page { margin-bottom: 0; padding: 0 0 75px; }
 
-.karriere .slide-container { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
+.karriere .jobs-list-main-container { -webkit-align-items: center; -ms-flex-align: center; align-items: center; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
 
-.karriere .slide-container .single-job-col-4 { height: auto; width: 50%; }
+.karriere .swiper-container { margin-bottom: 35px; }
 
-@media (max-width: 480px) { .karriere .slide-container .single-job-col-4 { width: 100%; } }
+.karriere .swiper-container .single-job-col-4 { height: auto; width: 50%; }
 
-.karriere .slide-container .single-job-container { padding: 15px; }
+@media (max-width: 480px) { .karriere .swiper-container .single-job-col-4 { width: 100%; } }
 
-.karriere .slide-container .single-job-inner-container { background-color: #EFF1F4; padding: 25px; }
+.karriere .swiper-container .single-job-container { padding: 0; }
 
-.karriere .slide-container .single-job-col-4:nth-child(2n + 1) .single-job-container { padding-left: 0; }
+.karriere .swiper-container .single-job-inner-container { background-color: #EFF1F4; padding: 25px; }
 
-@media (max-width: 480px) { .karriere .slide-container .single-job-col-4:nth-child(2n + 1) .single-job-container { padding-left: 15px; } }
+.karriere .swiper-container + .swiper-pagination { -webkit-order: 2; -ms-flex-order: 2; order: 2; position: relative; }
 
-.karriere .slide-container .single-job-col-4:nth-child(2n) .single-job-container { padding-right: 0; }
+.karriere .swiper-container + .swiper-pagination .swiper-pagination-bullet { background: none; color: #1E3258; font-size: 16px; font-weight: bold; height: auto; opacity: .7; padding: 0 10px; width: auto; }
 
-@media (max-width: 480px) { .karriere .slide-container .single-job-col-4:nth-child(2n) .single-job-container { padding-right: 15px; } }
+.karriere .swiper-container + .swiper-pagination .swiper-pagination-bullet:hover { opacity: 1; }
+
+.karriere .swiper-container + .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active { color: #68AF7C; }
+
+.karriere .swiper-container ~ .swiper-button-next, .karriere .swiper-container ~ .swiper-button-prev { background: none; color: #1E3258; font-size: 12px; font-weight: bold; height: auto; line-height: 30px; margin: 0; position: relative; text-transform: uppercase; transition: all 0.3s linear; width: auto; }
+
+.karriere .swiper-container ~ .swiper-button-next::-webkit-selection, .karriere .swiper-container ~ .swiper-button-prev::-webkit-selection { background: none; color: #1E3258; }
+
+.karriere .swiper-container ~ .swiper-button-next::-moz-selection, .karriere .swiper-container ~ .swiper-button-prev::-moz-selection { background: none; color: #1E3258; }
+
+.karriere .swiper-container ~ .swiper-button-next::selection, .karriere .swiper-container ~ .swiper-button-prev::selection { background: none; color: #1E3258; }
+
+.karriere .swiper-container ~ .swiper-button-next:before, .karriere .swiper-container ~ .swiper-button-prev:before { border-bottom: 12px solid transparent; border-top: 12px solid transparent; bottom: 0; content: ''; height: 0; margin: auto; position: absolute; top: 0; transition: all 0.3s linear; }
+
+.karriere .swiper-container ~ .swiper-button-prev { -webkit-order: 1; -ms-flex-order: 1; order: 1; padding-left: 25px; }
+
+.karriere .swiper-container ~ .swiper-button-prev:before { border-right: 12px solid #1E3258; left: 0; }
+
+.karriere .swiper-container ~ .swiper-button-prev:hover:before { -webkit-transform: translateX(-10px); -ms-transform: translateX(-10px); transform: translateX(-10px); }
+
+.karriere .swiper-container ~ .swiper-button-next { -webkit-order: 3; -ms-flex-order: 3; order: 3; padding-right: 25px; }
+
+.karriere .swiper-container ~ .swiper-button-next:before { border-left: 12px solid #1E3258; right: 0; }
+
+.karriere .swiper-container ~ .swiper-button-next:hover:before { -webkit-transform: translateX(10px); -ms-transform: translateX(10px); transform: translateX(10px); }
 
 /*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
 

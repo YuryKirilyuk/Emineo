@@ -4,3 +4,8 @@
   &::-moz-placeholder          { @content; }
   &:-ms-input-placeholder      { @content; }
 }
+@mixin text-selection {
+  &::-webkit-selection    { @content; }
+  &::-moz-selection       { @content; }
+  &::selection            { @content; }
+}

@@ -48,16 +48,27 @@ jQuery(function($){
         e.preventDefault();
         //$(this).closest('.js-toggle-list').toggleClass('current');
         //$(this).find('.sub-menu').slideToggle();
-    })
+    });
 
 
 
     //initialize swiper when document ready
-    var mySwiper = new Swiper ('.swiper-container', {
-        // Optional parameters
-        //direction: 'vertical',
-        loop: true
-    })
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        slidesPerColumn: 2,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
 
 

@@ -3,32 +3,96 @@
   padding: 0 0 75px;
 }
 
-.karriere .slide-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.karriere {
 
-  .single-job-col-4 {
-    height: auto;
-    width: 50%;
-    @media(max-width: 480px) {width: 100%;}
+  .jobs-list-main-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .single-job-container {padding: 15px;}
+  .swiper-container {
+    margin-bottom: 35px;
 
-  .single-job-inner-container {
-    background-color: #EFF1F4;
-    padding: 25px;
-  }
+    .single-job-col-4 {
+      height: auto;
+      width: 50%;
+      @media(max-width: 480px) {width: 100%;}
+    }
 
-  .single-job-col-4:nth-child(2n + 1) .single-job-container {
-    padding-left: 0;
-    @media(max-width: 480px) {padding-left: 15px;}
-  }
+    .single-job-container {padding: 0;}
 
-  .single-job-col-4:nth-child(2n) .single-job-container {
-    padding-right: 0;
-    @media(max-width: 480px) {padding-right: 15px;}
-  }
+    .single-job-inner-container {
+      background-color: #EFF1F4;
+      padding: 25px;
+    }
 
-}
+    + .swiper-pagination {
+      order: 2;
+      position: relative;
+      .swiper-pagination-bullet {
+        background: none;
+        color: $blue-dark;
+        font-size: 16px;
+        font-weight: bold;
+        height: auto;
+        opacity: .7;
+        padding: 0 10px;
+        width: auto;
+        &:hover {opacity: 1;}
+        &.swiper-pagination-bullet-active {color: $green;}
+      }
+    }
+
+    ~ .swiper-button-next,
+    ~ .swiper-button-prev {
+      background: none;
+      color: $blue-dark;
+      font-size: 12px;
+      font-weight: bold;
+      height: auto;
+      line-height: 30px;
+      margin: 0;
+      position: relative;
+      text-transform: uppercase;
+      transition: $default-transition;
+      width: auto;
+      @include text-selection {
+        background: none;
+        color: $blue-dark;
+      }
+      &:before {
+        border-bottom: 12px solid transparent;
+        border-top: 12px solid transparent;
+        bottom: 0;
+        content: '';
+        height: 0;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        transition: $default-transition;
+      }
+    }
+    ~ .swiper-button-prev {
+      order: 1;
+      padding-left: 25px;
+      &:before {
+        border-right: 12px solid $blue-dark;
+        left: 0;
+      }
+      &:hover:before {transform: translateX(-10px);}
+    }
+    ~ .swiper-button-next {
+      order: 3;
+      padding-right: 25px;
+      &:before {
+        border-left: 12px solid $blue-dark;
+        right: 0;
+      }
+      &:hover:before {transform: translateX(10px);}
+    }
+
+  }//.swiper-container
+
+}//.karriere
