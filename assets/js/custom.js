@@ -52,21 +52,33 @@ jQuery(function($){
 
 
 
-    //initialize swiper when document ready
-    var swiper = new Swiper('.swiper-container', {
+    //swiper on Karriere page
+    var swiper = new Swiper('.karriere .swiper-container', {
         slidesPerView: 2,
         slidesPerColumn: 2,
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
+            el: '.karriere .swiper-pagination',
             clickable: true,
             renderBullet: function (index, className) {
                 return '<span class="' + className + '">' + (index + 1) + '</span>';
             },
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.karriere .swiper-button-next',
+            prevEl: '.karriere .swiper-button-prev',
+        },
+    });
+
+    var swiper_2 = new Swiper('.elementor-swiper .swiper-container', {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        centeredSlides: true,
+        initialSlide: 1,
+        slidesOffsetBefore: -20,
+        pagination: {
+            el: '.elementor-swiper .swiper-pagination',
+            clickable: true,
         },
     });
 
