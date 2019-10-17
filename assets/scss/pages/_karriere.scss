@@ -30,15 +30,15 @@
       justify-content: space-between;
       padding: 25px;
 
-      .job-location {
-        width: 100%;
-      }
+      .job-location {width: 100%;}
 
     }
 
     + .swiper-pagination {
       order: 2;
       position: relative;
+      @media screen and (max-width: 580px) {display: none;}
+
       .swiper-pagination-bullet {
         background: none;
         color: $blue-dark;
@@ -147,7 +147,9 @@
     }//.swiper-slide-active
 
     &:not(.swiper-slide-active) {
-      width: 730px !important;
+      @media screen and (min-width: 661px) {
+        width: 730px !important;
+      }
 
       .elementor-testimonial__image img {
         @media screen and (min-width: 661px) {
@@ -186,10 +188,12 @@
     &:before {
       left: -60px;
       top: -50px;
+      @media screen and (max-width: 660px) {left: 0;}
     }
     &:after {
       bottom: -50px;
       right: -20px;
+      @media screen and (max-width: 660px) {right: 0;}
     }
 
     .elementor-testimonial__content {

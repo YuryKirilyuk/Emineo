@@ -57,6 +57,13 @@ jQuery(function($){
         slidesPerView: 2,
         slidesPerColumn: 2,
         spaceBetween: 30,
+        breakpoints: {
+            580: {
+                autoHeight: true,
+                slidesPerView: 1,
+                slidesPerColumn: 1
+            }
+        },
         pagination: {
             el: '.karriere .swiper-pagination',
             clickable: true,
@@ -76,6 +83,11 @@ jQuery(function($){
         centeredSlides: true,
         initialSlide: 1,
         slidesOffsetBefore: -20,
+        breakpoints: {
+            660: {
+                slidesOffsetBefore: 0
+            }
+        },
         pagination: {
             el: '.elementor-swiper .swiper-pagination',
             clickable: true,
