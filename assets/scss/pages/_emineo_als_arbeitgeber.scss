@@ -1,0 +1,120 @@
+.section-jobs.arbeitgeber-page {
+
+  .single-job-col-4 {
+    width: 50% !important;
+  }
+
+  .single-job-inner-container {
+    background-color: #EFF1F4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 25px;
+
+    .job-location {width: 100%;}
+
+  }
+
+
+  .elementor-button-link {
+    margin-top: 20px;
+  }
+
+}//.section-jobs.arbeitgeber-page
+
+.section-digital.arbeitgeber-page {
+  padding-top: 10px !important;
+}
+
+
+
+.section-ansprechpartner {
+
+  .elementor-inner-section {
+
+    .elementor-row {
+      @media screen and (max-width: 1024px) {
+        justify-content: space-between;
+      }
+
+      .elementor-column:first-child {
+        max-width: 140px;
+        flex-shrink: 0;
+        width: 100%;
+      }
+      .elementor-column:nth-child(2) {
+        width: 100%;
+        @media screen and (min-width: 476px) and (max-width: 1024px) {
+          order: 2;
+        }
+      }
+      .elementor-column:nth-child(3) {
+        max-width: 225px;
+        flex-shrink: 0;
+        width: 100%;
+        @media screen and (min-width: 476px) and (max-width: 1024px) {
+          order: 1;
+        }
+        @media screen and (max-width: 475px) {
+          margin: auto;
+        }
+      }
+
+    }//.elementor-row
+
+
+  }//.elementor-inner-section
+
+
+  .info-section {
+
+    .elementor-widget-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+  }
+
+  .block-person {
+    @media screen and (min-width: 651px) {width: 49%;}
+    @media screen and (max-width: 650px) {margin-bottom: 0;}
+  }
+
+  .contact-block {
+    @media screen and (min-width: 651px) {width: 49%;}
+    a {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+
+  .elementor-button {
+    display: block !important;
+  }
+
+}//.section-ansprechpartner
+
+
+.section-social-media {
+  margin-top: 30px;
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-caption {
+      align-items: center;
+      background: #EFF1F4;
+      border: none;
+      display: flex;
+      flex: 1;
+      padding: 5px 20px;
+    }
+  }
+}//.section-social-media
