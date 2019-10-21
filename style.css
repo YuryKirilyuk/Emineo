@@ -140,6 +140,8 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-page-title { -webkit-align-items: center; -ms-flex-align: center; align-items: center; background-color: #F0F0F0; background-position: right center; background-repeat: no-repeat; display: -webkit-flex; display: -ms-flexbox; display: flex; height: 361px; }
 
+.section-page-title.news-page { height: 259px; }
+
 .section-page-title .elementor-page-title { margin-bottom: 12px; }
 
 .section-page-title .elementor-container { width: 100%; }
@@ -517,7 +519,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-news { padding-bottom: 115px; }
 
-.section-news .elementor-posts { display: block; }
+.home .section-news .elementor-posts { display: block; }
 
 .section-news .elementor-post { position: relative; }
 
@@ -525,7 +527,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-news .elementor-post .elementor-post__title { margin: 0; }
 
-.section-news .elementor-post .elementor-post__title a { background: #1E3258; color: #fff; display: block; font-family: "Gilroy", sans-serif; font-size: 21px; font-weight: normal; line-height: 1.47; padding: 10px 25px; }
+.section-news .elementor-post .elementor-post__title a { background: #1E3258; color: #fff; display: block; font-family: "Gilroy", sans-serif; font-size: 21px; font-weight: normal; line-height: 1.47; overflow: hidden; padding: 10px 25px; text-overflow: ellipsis; white-space: nowrap; }
 
 .section-news .elementor-post .elementor-post__badge { color: #D6501F; font-size: 16px; font-weight: bold; height: 40px; line-height: 40px; padding: 0 11px; text-transform: uppercase; }
 

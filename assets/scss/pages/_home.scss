@@ -561,7 +561,7 @@
 .section-news {
   padding-bottom: 115px;
 
-  .elementor-posts {
+  .home & .elementor-posts {
     display: block;
   }
   .elementor-post {
@@ -580,7 +580,10 @@
         font-size: 21px;
         font-weight: normal;
         line-height: 1.47;
+        overflow: hidden;
         padding: 10px 25px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
