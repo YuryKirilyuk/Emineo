@@ -95,6 +95,22 @@ jQuery(function($){
     });
 
 
+    //upload input on contact page
+    $('.elementor-field-type-upload input[type="file"]').change(function() {
+
+        var input = $(this),
+            label = input.siblings('label'),
+            getPath = input.val();
+
+        function getName (str){
+            if (str.lastIndexOf('\\')){var i = str.lastIndexOf('\\')+1;}
+            else{var i = str.lastIndexOf('/')+1;}
+            var filename = str.slice(i);
+            $(label).attr('title', filename).text(filename);
+        }
+        getName(getPath);
+
+    });
 
 
 

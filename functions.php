@@ -22,6 +22,11 @@ function child_enqueue_styles() {
 
 }
 
+/**
+ * Include shortcodes
+ */
+include "shortcodes/agent.php";
+
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 add_action( 'init', function(){
@@ -195,7 +200,7 @@ function process_jobs_feed($url){
 	}
 	return [];
 }
-
+/*
  add_action('wp', function(){
  	if(is_page('jobs-feed')){
  		$url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
@@ -203,8 +208,7 @@ function process_jobs_feed($url){
  		echo '<pre>';print_r($jobs);echo '</pre>';
  	}
  });
-
-
+*/
 
 function Generate_job($atts) {
 
@@ -264,7 +268,7 @@ function Generate_job($atts) {
 	}
 
 	if($jobs) {
-	    // Slider on 'Karriere' page
+        // Slider on 'Karriere' page
         if($a['layout'] == 'slider') {
             $out .= '
                 <div class="swiper-container">
@@ -273,8 +277,6 @@ function Generate_job($atts) {
         }
 		foreach($jobs as $job) {
 			if($a['mode'] == 'light') {
-
-
 				$out .= '
 				<div class="single-job-col-4 swiper-slide">
 					<div class="single-job-container">
@@ -298,7 +300,6 @@ function Generate_job($atts) {
 				</div>
 				';
 			}
-
 		}
 
         if($a['layout'] == 'slider') {
@@ -315,7 +316,7 @@ function Generate_job($atts) {
 
 		if($a['mode'] == 'light') {
 		$out .= '
-		    </div><!-- //.elementor-row1.jobs-list-main-container -->
+		</div><!-- //.elementor-row1.jobs-list-main-container -->		
 		';
 		}
 	}
@@ -326,7 +327,6 @@ add_shortcode('job', 'Generate_job');
 
 
 function show_breadcrumbs() {
-
     astra_get_breadcrumb();
 }
 add_shortcode('breadcrumbs', 'show_breadcrumbs');

@@ -1,9 +1,11 @@
 .btn,
 .elementor-widget-button:not(.download-link) .elementor-button-link,
-.elementor-widget-button:not(.download-link) a.elementor-button-link {
+.elementor-widget-button:not(.download-link) a.elementor-button-link,
+.elementor-field-group .elementor-button {
   background: $green;
   border-radius: 0;
   color: #fff;
+  cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
   font-size: 1.6rem;

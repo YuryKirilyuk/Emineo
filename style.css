@@ -168,9 +168,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-breadcrumbs .breadcrumbs .current-page, .section-breadcrumbs .breadcrumbs .trail-end { color: #D6501F; }
 
-.btn, .elementor-widget-button:not(.download-link) .elementor-button-link, .elementor-widget-button:not(.download-link) a.elementor-button-link { background: #68AF7C; border-radius: 0; color: #fff; display: inline-block; font-family: "Gilroy", sans-serif; font-size: 1.6rem; font-weight: bold; height: 60px; line-height: 60px; padding: 0 2.5rem; text-align: center; text-transform: uppercase; }
+.btn, .elementor-widget-button:not(.download-link) .elementor-button-link, .elementor-widget-button:not(.download-link) a.elementor-button-link, .elementor-field-group .elementor-button { background: #68AF7C; border-radius: 0; color: #fff; cursor: pointer; display: inline-block; font-family: "Gilroy", sans-serif; font-size: 1.6rem; font-weight: bold; height: 60px; line-height: 60px; padding: 0 2.5rem; text-align: center; text-transform: uppercase; }
 
-.btn:hover, .elementor-widget-button:not(.download-link) .elementor-button-link:hover, .elementor-widget-button:not(.download-link) a.elementor-button-link:hover { background: #58a66e; color: #fff; }
+.btn:hover, .elementor-widget-button:not(.download-link) .elementor-button-link:hover, .elementor-widget-button:not(.download-link) a.elementor-button-link:hover, .elementor-field-group .elementor-button:hover { background: #58a66e; color: #fff; }
 
 .download-link .elementor-icon-box-wrapper { display: -webkit-flex; display: -ms-flexbox; display: flex; }
 
@@ -859,6 +859,38 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 .section-social-media .gallery .gallery-item { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
 
 .section-social-media .gallery .gallery-caption { -webkit-align-items: center; -ms-flex-align: center; align-items: center; background: #EFF1F4; border: none; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex: 1; -ms-flex: 1; flex: 1; padding: 5px 20px; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field, .contact-form.elementor-widget-form .elementor-field-subgroup label { padding: 6px 0; box-shadow: none !important; font-family: "Gilroy", sans-serif; max-width: 100%; position: relative; z-index: 3; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field::-webkit-input-placeholder, .contact-form.elementor-widget-form .elementor-field-subgroup label::-webkit-input-placeholder { opacity: 1; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field:-moz-placeholder, .contact-form.elementor-widget-form .elementor-field-subgroup label:-moz-placeholder { opacity: 1; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field::-moz-placeholder, .contact-form.elementor-widget-form .elementor-field-subgroup label::-moz-placeholder { opacity: 1; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field:-ms-input-placeholder, .contact-form.elementor-widget-form .elementor-field-subgroup label:-ms-input-placeholder { opacity: 1; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field:placeholder-shown, .contact-form.elementor-widget-form .elementor-field-subgroup label:placeholder-shown { z-index: 1; }
+
+.contact-form.elementor-widget-form .elementor-field-group .elementor-field select, .contact-form.elementor-widget-form .elementor-field-subgroup label select { box-shadow: none !important; padding-left: 0 !important; }
+
+.contact-form.elementor-widget-form .elementor-field-group:not(.elementor-field-type-upload):not(.elementor-field-required) .elementor-field-label { display: none; }
+
+.contact-form.elementor-widget-form .elementor-field-group:not(.elementor-field-type-upload).elementor-field-required .elementor-field-label { font-family: "Gilroy", sans-serif; position: absolute; visibility: hidden; z-index: 2; }
+
+.contact-form.elementor-widget-form .elementor-field-group:not(.elementor-field-type-upload).elementor-field-required .elementor-field-label:after { content: '*'; color: #D6501F; display: inline-block; vertical-align: top; visibility: visible; }
+
+.contact-form .elementor-field-group .elementor-select-wrapper { padding-top: 0 !important; }
+
+.contact-form .elementor-field-group .elementor-select-wrapper::before { color: #1E3258 !important; font-size: 20px; }
+
+.contact-form textarea { border: 1px solid #787c85 !important; padding: 15px !important; }
+
+.contact-form .elementor-field-type-upload .elementor-field-label { background: url('data:image/svg+xml;utf8,<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 0C9.83089 0 5.625 4.20596 5.625 9.37499V23.4375C5.625 27.0556 8.56935 30 12.1875 30C15.8057 30 18.75 27.0556 18.75 23.4375V14.0625C18.75 10.9607 16.2268 8.43748 13.125 8.43748V12.1875C14.1587 12.1875 15.0001 13.0288 15.0001 14.0625V23.4375C15.0001 24.9884 13.7384 26.2499 12.1876 26.2499C10.6367 26.2499 9.37511 24.9883 9.37511 23.4375V9.37499C9.37511 6.2732 11.8983 3.74998 15.0001 3.74998C18.1019 3.74998 20.6251 6.2732 20.6251 9.37499V26.25H24.3751V9.37499C24.375 4.20596 20.1691 0 15 0V0Z" fill="%231E3258"/></svg>') no-repeat left center; cursor: pointer; height: auto; overflow: hidden; padding: 3px 0 3px 40px; position: static; text-overflow: ellipsis; white-space: nowrap; width: 100%; }
+
+.contact-form .elementor-field-type-upload [type="file"] { border: 0; clip: rect(0, 0, 0, 0); height: 1px; overflow: hidden; padding: 0; position: absolute !important; white-space: nowrap; width: 1px; }
+
+.ansprechpartner-block .elementor-text-editor a { display: block; margin-bottom: 10px; }
 
 /*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
 
