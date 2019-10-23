@@ -29,7 +29,7 @@
                         <option value="EN">EN</option>
                     </select>
                 </div>
-                <a href="#" class="btn">Kontaktiern Sie uns</a>
+                <a href="<?php echo get_site_url(); ?>/kontaktieren-sie-uns/" class="btn">Kontaktiern Sie uns</a>
 			</div><!-- Main Header Container -->
 		</div><!-- ast-row -->
 		<?php astra_main_header_bar_bottom(); ?>

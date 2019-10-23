@@ -1,6 +1,10 @@
 #masthead {
 
   .ast-container {
+    @media screen and (max-width: 1400px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     @media screen and (max-width: 1070px) {
       padding-left: 15px;
       padding-right: 15px;
@@ -14,6 +18,8 @@
     @media screen and (max-width: 921px) {order: 3;}
   }
 
+  .main-header-bar-navigation nav {display: flex;}
+
 
 
   .main-header-menu > .menu-item {
@@ -22,6 +28,8 @@
       font-weight: bold;
       text-transform: uppercase;
       &:hover {color: $green;}
+      @media screen and (max-width: 1050px) {font-size: 1.4rem;}
+      @media screen and (min-width: 922px) and (max-width: 935px) {font-size: 1.2rem;}
       @media screen and (min-width: 922px) and (max-width: 1250px) {
         padding-left: .5rem;
         padding-right: .5rem;

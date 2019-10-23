@@ -87,6 +87,8 @@ img { height: auto; max-width: 100%; }
 
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
+.site-content { overflow: hidden; }
+
 .elementor-widget-text-editor, .elementor-heading-title { font-family: "Gilroy", sans-serif !important; }
 
 .section-support { background: #EFF1F4; box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.3); height: 200px; padding: 0 0 0 50px; position: fixed; right: 0; -webkit-transform: translateX(89%); -ms-transform: translateX(89%); transform: translateX(89%); top: 50%; transition: all 0.3s linear; width: 465px; z-index: 999; }
@@ -230,15 +232,23 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
   &:after {top: .8rem;}
 }//.navigation-icon
 */
+@media screen and (max-width: 1400px) { #masthead .ast-container { padding-left: 20px; padding-right: 20px; } }
+
 @media screen and (max-width: 1070px) { #masthead .ast-container { padding-left: 15px; padding-right: 15px; } }
 
 #masthead .site-logo-img { padding-right: 0; }
 
 @media screen and (max-width: 921px) { #masthead .ast-mobile-menu-buttons { -webkit-order: 3; -ms-flex-order: 3; order: 3; } }
 
+#masthead .main-header-bar-navigation nav { display: -webkit-flex; display: -ms-flexbox; display: flex; }
+
 #masthead .main-header-menu > .menu-item > a { font-size: 1.6rem; font-weight: bold; text-transform: uppercase; }
 
 #masthead .main-header-menu > .menu-item > a:hover { color: #68AF7C; }
+
+@media screen and (max-width: 1050px) { #masthead .main-header-menu > .menu-item > a { font-size: 1.4rem; } }
+
+@media screen and (min-width: 922px) and (max-width: 935px) { #masthead .main-header-menu > .menu-item > a { font-size: 1.2rem; } }
 
 @media screen and (min-width: 922px) and (max-width: 1250px) { #masthead .main-header-menu > .menu-item > a { padding-left: .5rem; padding-right: .5rem; } }
 
@@ -622,7 +632,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-ansprechpartner .elementor-widget-social-icons { margin-bottom: 40px !important; }
 
-.section-ansprechpartner .elementor-button-link { max-width: 220px; margin-bottom: 10px; width: 100%; }
+.section-ansprechpartner .elementor-button-link { max-width: 220px; margin: 0 auto 10px; width: 100%; }
 
 .success-stories-content { font-family: "Gilroy", sans-serif; }
 

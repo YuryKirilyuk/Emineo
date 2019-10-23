@@ -2,6 +2,8 @@ h1,h2,h3,h4,h5,h6 {
   span {white-space: nowrap;}
 }
 
+.site-content {overflow: hidden;}
+
 .elementor-widget-text-editor,
 .elementor-heading-title {
   font-family: $base-font-family !important;
