@@ -95,7 +95,7 @@ jQuery(function($){
     });
 
 
-    //upload input on contact page
+    //file input on contact page
     $('.elementor-field-type-upload input[type="file"]').change(function() {
 
         var input = $(this),

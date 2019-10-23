@@ -168,6 +168,28 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-breadcrumbs .breadcrumbs .current-page, .section-breadcrumbs .breadcrumbs .trail-end { color: #D6501F; }
 
+.single-agent-element { color: #1E3258; font-family: "Gilroy", sans-serif; }
+
+.single-agent-element .elementor-heading-title { color: #1E3258 !important; font-size: 36px; font-weight: 700; }
+
+.single-agent-element .elementor-widget-image-box { border-bottom: 2px solid #fff; padding-bottom: 30px; padding-top: 12px; }
+
+.single-agent-element .elementor-image-box-img { margin-bottom: 30px !important; width: 40%; }
+
+.single-agent-element .elementor-image-box-title { color: #1E3258 !important; font-family: "Gilroy", sans-serif; font-size: 16px; font-weight: 700; line-height: 21px; }
+
+.single-agent-element .elementor-image-box-description { color: #1E3258 !important; font-family: "Gilroy", sans-serif; font-size: 16px; }
+
+.single-agent-element .elementor-widget-text-editor { color: #1E3258; font-family: "Gilroy", sans-serif; font-size: 16px; line-height: 27px; }
+
+.single-agent-element .elementor-widget-social-icons .elementor-social-icon { background-color: #1E3258; font-size: 22px; padding: 0.2em; }
+
+.single-agent-element .elementor-widget-social-icons .elementor-social-icon:not(:last-child) { margin-right: 25px; }
+
+.single-agent-element .elementor-widget-social-icons .elementor-social-icon i, .single-agent-element .elementor-widget-social-icons .elementor-social-icon svg { display: block; height: 1em; position: relative; width: 1em; }
+
+.single-agent-element .team-name { color: #68AF7C; font-size: 16px; font-weight: 700; text-transform: uppercase; }
+
 .btn, .elementor-widget-button:not(.download-link) .elementor-button-link, .elementor-widget-button:not(.download-link) a.elementor-button-link, .elementor-field-group .elementor-button { background: #68AF7C; border-radius: 0; color: #fff; cursor: pointer; display: inline-block; font-family: "Gilroy", sans-serif; font-size: 1.6rem; font-weight: bold; height: 60px; line-height: 60px; padding: 0 2.5rem; text-align: center; text-transform: uppercase; }
 
 .btn:hover, .elementor-widget-button:not(.download-link) .elementor-button-link:hover, .elementor-widget-button:not(.download-link) a.elementor-button-link:hover, .elementor-field-group .elementor-button:hover { background: #58a66e; color: #fff; }

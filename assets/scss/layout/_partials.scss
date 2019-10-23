@@ -9,7 +9,6 @@ h1,h2,h3,h4,h5,h6 {
   font-family: $base-font-family !important;
 }
 
-
 .section-support {
   background: #EFF1F4;
   box-shadow: 0 0 20px -5px rgba(0,0,0,.3);
@@ -224,3 +223,71 @@ h1,h2,h3,h4,h5,h6 {
   }//.breadcrumbs
 }//.section-breadcrumbs
 
+
+.single-agent-element {
+  color: $blue-dark;
+  font-family: $base-font-family;
+
+  .elementor-heading-title {
+    color: $blue-dark !important;
+    font-size: 36px;
+    font-weight: 700;
+  }//.elementor-heading-title
+
+  .elementor-widget-image-box {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 30px;
+    padding-top: 12px;
+  }
+
+  .elementor-image-box-img {
+    margin-bottom: 30px !important;
+    width: 40%;
+  }
+
+  .elementor-image-box-title {
+    color: $blue-dark !important;
+    font-family: $base-font-family;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+  }
+
+  .elementor-image-box-description {
+    color: $blue-dark !important;
+    font-family: $base-font-family;
+    font-size: 16px;
+  }
+
+  .elementor-widget-text-editor {
+    color: $blue-dark;
+    font-family: $base-font-family;
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  .elementor-widget-social-icons {
+    .elementor-social-icon {
+      background-color: $blue-dark;
+      font-size: 22px;
+      padding: 0.2em;
+      &:not(:last-child) {margin-right: 25px;}
+
+      i, svg {
+        display: block;
+        height: 1em;
+        position: relative;
+        width: 1em;
+      }
+
+    }
+  }
+
+  .team-name {
+    color: $green;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+}//.single-agent-element
