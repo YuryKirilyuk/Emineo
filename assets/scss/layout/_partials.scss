@@ -266,6 +266,12 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 27px;
   }
 
+  .agent-email {
+    display: block;
+    margin-bottom: 10px;
+    &:hover {color: $green;}
+  }
+
   .elementor-widget-social-icons {
     .elementor-social-icon {
       background-color: $blue-dark;

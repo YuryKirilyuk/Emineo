@@ -52,7 +52,7 @@ function agent_shortcode_cb($atts) {
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <p><?php echo $excerpt; ?></p>
                                     <p><?php if($email) { ?>
-                                            <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                                            <a class="agent-email" href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
                                         <?php } ?>
                                         <?php echo $phone_number; ?>
                                     </p>
