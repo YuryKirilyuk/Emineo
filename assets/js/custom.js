@@ -113,6 +113,30 @@ jQuery(function($){
     });
 
 
+    //contact page address tabs
+    $('.section-tabs .elementor-column').on('click', function(){
+        var address = $(this).attr('id');
+
+        console.log(address);
+        $(this).addClass('active').siblings().removeClass('active');
+
+
+        $('#map').attr('data-tab', address);
+        $('.map-and-markers').find('.' + address + '').addClass('active').siblings().removeClass('active');
+
+    });
+
+    $('.map-and-markers [class*="address"]').on('click', function(){
+        var address = $(this).attr('class');
+
+        console.log(address);
+        $(this).addClass('active').siblings().removeClass('active');
+
+
+        //$('.section-tab').attr('data-tab', address);
+        $('#' + address + '').addClass('active').siblings().removeClass('active');
+
+    })
 
 
 
