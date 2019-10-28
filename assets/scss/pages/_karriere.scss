@@ -124,7 +124,8 @@
     box-shadow: 0 4px 25px rgba(0, 0, 0, .1);
     flex-shrink: 0;
     padding: 65px 5.6% 50px;
-    width: 660px !important;
+    //width: 660px !important;
+    width: 730px !important;
     @media screen and (max-width: 660px) {width: 100% !important;}
 
     &.swiper-slide-active {
