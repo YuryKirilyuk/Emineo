@@ -80,22 +80,28 @@ jQuery(function($){
     }
 
 
-    var swiper_2 = new Swiper('.elementor-swiper .swiper-container', {
-        slidesPerView: 'auto',
-        spaceBetween: 30,
-        centeredSlides: true,
-        initialSlide: 1,
-        slidesOffsetBefore: -20,
-        breakpoints: {
-            660: {
-                slidesOffsetBefore: 0
-            }
-        },
-        pagination: {
-            el: '.elementor-swiper .swiper-pagination',
-            clickable: true,
-        },
-    });
+
+
+    if($('.elementor-widget-testimonial-carousel').length){
+        var testimonialSwiper = document.querySelector('.elementor-widget-testimonial-carousel .swiper-container').swiper;
+        testimonialSwiper.destroy();
+
+        var swiper_2 = new Swiper('.elementor-widget-testimonial-carousel .swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides: true,
+            initialSlide: 1,
+            loop: true,
+            pagination: {
+                el: '.elementor-widget-testimonial-carousel .swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
+
+
+
+
 
 
     //file input on contact page

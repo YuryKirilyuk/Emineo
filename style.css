@@ -9,7 +9,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: emineo-theme
 Template: astra
 */
-/*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
+/******************************************************************
+*******************************************************************
+THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS
+*******************************************************************
+*******************************************************************/
 @import url("../astra/style.css");
 @import url(custom.css);
 @font-face { font-family: 'Gilroy'; src: url("assets/fonts/Gilroy-Thin.eot"); src: local("Gilroy Thin"), local("Gilroy-Thin"), url("assets/fonts/Gilroy-Thin.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Gilroy-Thin.woff") format("woff"), url("assets/fonts/Gilroy-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; }
@@ -780,7 +784,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-testimonials .swiper-wrapper { min-height: 325px; padding: 30px 0; }
 
-.section-testimonials .swiper-slide { box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); -webkit-flex-shrink: 0; -ms-flex-negative: 0; flex-shrink: 0; padding: 65px 5.6% 50px; width: 730px !important; }
+.section-testimonials .swiper-slide { box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); -webkit-flex-shrink: 0; -ms-flex-negative: 0; flex-shrink: 0; padding: 65px 5.6% 50px; width: 660px !important; }
 
 @media screen and (max-width: 660px) { .section-testimonials .swiper-slide { width: 100% !important; } }
 
@@ -968,6 +972,10 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-contacts_map .map-and-markers .elementor-widget-html .address-4 { top: 46%; left: 43.5%; }
 
-/*THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS*/
+/******************************************************************
+*******************************************************************
+THIS IS A COMPILED FILE. DO NOT WRITE STYLES HERE. USE CUSTOM.CSS
+*******************************************************************
+*******************************************************************/
 
 /*# sourceMappingURL=style.css.map */
