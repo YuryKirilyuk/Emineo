@@ -253,6 +253,15 @@
 
   }//.section-jobs-title
 
+  .single-job-col-4.swiper-slide {overflow: visible;}
+  .single-job-inner-container {
+    transition: $default-transition;
+    &:hover {
+      box-shadow: 0 0 15px -3px rgba(0,0,0,.3);
+      transform: scale(1.03);
+    }
+  }//.single-job-inner-container
+
 
   &:not(.karriere) .jobs-list-main-container {
     margin-top: 30px;
@@ -406,7 +415,7 @@
     margin-bottom: 7px;
     margin-top: 25px;
     text-transform: uppercase;
-    &:hover {color: darken($green, 10%);}
+    &:hover {color: $blue-dark;}
   }
 
 

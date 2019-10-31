@@ -423,6 +423,12 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-jobs .section-jobs-title .elementor-shortcode { font-size: 20px; line-height: 1.4; }
 
+.section-jobs .single-job-col-4.swiper-slide { overflow: visible; }
+
+.section-jobs .single-job-inner-container { transition: all 0.3s linear; }
+
+.section-jobs .single-job-inner-container:hover { box-shadow: 0 0 15px -3px rgba(0, 0, 0, 0.3); -webkit-transform: scale(1.03); -ms-transform: scale(1.03); transform: scale(1.03); }
+
 .section-jobs:not(.karriere) .jobs-list-main-container { margin-top: 30px; display: inline-block; }
 
 .section-jobs:not(.karriere) .jobs-list-main-container .single-job-col-4 { float: left; width: 33.33%; height: 100%; }
@@ -487,7 +493,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-jobs .btn-link { color: #68AF7C; display: block; font-size: 16px; font-weight: bold; margin-bottom: 7px; margin-top: 25px; text-transform: uppercase; }
 
-.section-jobs .btn-link:hover { color: #4f9563; }
+.section-jobs .btn-link:hover { color: #1E3258; }
 
 .section-jobs .elementor-button-link { margin-top: 50px; width: 100%; }
 
@@ -630,6 +636,10 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-success-stories .elementor-post .elementor-post__thumbnail__link { margin-bottom: 0 !important; }
 
+.section-success-stories .elementor-post .elementor-post__thumbnail__link img { top: 0; left: 0; transition: -webkit-transform 15s; transition: transform 15s; transition: transform 15s, -webkit-transform 15s; -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); -webkit-transform-origin: center; -ms-transform-origin: center; transform-origin: center; }
+
+.section-success-stories .elementor-post .elementor-post__thumbnail__link:hover img { -webkit-transform: scale(1.3); -ms-transform: scale(1.3); transform: scale(1.3); }
+
 .section-success-stories .elementor-post .elementor-post__title { margin: 0; }
 
 .section-success-stories .elementor-post .elementor-post__title a { background: #1E3258; color: #fff; display: block; font-family: "Gilroy", sans-serif; font-size: 21px; font-weight: normal; line-height: 1.47; padding: 10px 25px; }
@@ -732,7 +742,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .karriere .jobs-list-main-container { -webkit-align-items: center; -ms-flex-align: center; align-items: center; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
 
-.karriere .swiper-container { margin-bottom: 35px; }
+.karriere .swiper-container { padding: 30px; }
 
 .karriere .swiper-container .single-job-col-4 { height: auto; width: 50%; }
 
