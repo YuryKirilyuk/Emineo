@@ -12,6 +12,7 @@
  * Define Constants
  */
 define( 'CHILD_THEME_EMINEO_THEME_VERSION', '1.0.0' );
+define( 'JOB_FEED_URL', 'https://recruitingapp-2895.umantis.com/XMLExport/133' );
 
 /**
  * Enqueue styles
@@ -26,6 +27,7 @@ function child_enqueue_styles() {
  * Include shortcodes
  */
 include "shortcodes/agent.php";
+include "shortcodes/single-job.php";
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
@@ -200,10 +202,7 @@ function process_jobs_feed($url){
 	}
 	return [];
 }
-
-
-
-
+/*
  add_action('wp', function(){
  	if(is_page('jobs-feed')){
  		$url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
@@ -211,9 +210,7 @@ function process_jobs_feed($url){
  		echo '<pre>';print_r($jobs);echo '</pre>';
  	}
  });
-
-
-
+*/
 
 function Generate_job($atts) {
 
@@ -223,60 +220,56 @@ function Generate_job($atts) {
 		'mode' => 'light',
 		'posid' => '',
 		'exclude_posid' => '',
-        'layout' => '',
-        'single' => ''
+        'layout' => ''
 	), $atts );
 
     $url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
 	$jobs = process_jobs_feed($url);
 	$out = '';
+	if($a['mode'] == 'light') {
+		$out = '<div class="elementor-row1 jobs-list-main-container">';
+	}
+
+	$posids = [];
+	if($a['posid']) {
+		$posids = explode(",", $a['posid']);
+	}
+
+	if($posids) {
+		$splitted_jobs = [];
+		if($jobs) {
+			foreach($jobs as $job) {
+				if(in_array($job['posid'], $posids)) {
+					$splitted_jobs[] = $job;
+				}
+			}
+		}
+		$jobs = $splitted_jobs;
+	}
+	else {
+		if($a['howmany'] == '-1') {
+			$jobs = array_slice($jobs, $a['offset']);
+		}
+		else {
+			$jobs = array_slice($jobs, $a['offset'], $a['howmany']);
+		}
+	}
 
 
-    if($a['mode'] == 'light') {
-        $out = '<div class="elementor-row1 jobs-list-main-container">';
-    }
+	if($a['exclude_posid']) {
+		$splitted_jobs = [];
+		$ex_posids = explode(",", $a['exclude_posid']);
+		if($jobs) {
+			foreach($jobs as $job) {
+				if(!in_array($job['posid'], $ex_posids)) {
+					$splitted_jobs[] = $job;
+				}
+			}
+		}
+		$jobs = $splitted_jobs;
+	}
 
-    $posids = [];
-    if($a['posid']) {
-        $posids = explode(",", $a['posid']);
-    }
-
-    if($posids) {
-        $splitted_jobs = [];
-        if($jobs) {
-            foreach($jobs as $job) {
-                if(in_array($job['posid'], $posids)) {
-                    $splitted_jobs[] = $job;
-                }
-            }
-        }
-        $jobs = $splitted_jobs;
-    }
-    else {
-        if($a['howmany'] == '-1') {
-            $jobs = array_slice($jobs, $a['offset']);
-        }
-        else {
-            $jobs = array_slice($jobs, $a['offset'], $a['howmany']);
-        }
-    }
-
-
-    if($a['exclude_posid']) {
-        $splitted_jobs = [];
-        $ex_posids = explode(",", $a['exclude_posid']);
-        if($jobs) {
-            foreach($jobs as $job) {
-                if(!in_array($job['posid'], $ex_posids)) {
-                    $splitted_jobs[] = $job;
-                }
-            }
-        }
-        $jobs = $splitted_jobs;
-    }
-
-    if($jobs) {
-
+	if($jobs) {
         // Slider on 'Karriere' page
         if($a['layout'] == 'slider') {
             $out .= '
@@ -284,33 +277,33 @@ function Generate_job($atts) {
                     <div class="swiper-wrapper">
             ';
         }
+		foreach($jobs as $job) {
+			if($a['mode'] == 'light') {
+				$out .= '
+				<div class="single-job-col-4 swiper-slide">
+					<div class="single-job-container">
+						<div class="single-job-inner-container">
+				';
+			}
 
-        foreach($jobs as $job) {
-            if($a['mode'] == 'light') {
-                $out .= '
-                <div class="single-job-col-4 swiper-slide">
-                    <div class="single-job-container">
-                        <div class="single-job-inner-container">
-                ';
-            }
+			$out .= '
+				<div class="job-category">_' . $job['Criteria']['Deparment'] . '</div>
+				<div class="job-online-from">Online seit: ' . $job['Last Modified'] . '</div>
+				<h3 class="job-title">' . $job['Job Details']['Title of job'] . '</h3>
+				<div class="job-location">' . $job['Criteria']['Work location'] . '</div>
+				<div class="job-description">' . $job['Job Details']['Short description'] . '</div>
+				<!-- <a class="btn-link" target="_blank" href="' . $job['Application URL'] . '">Mehr Erfahren</a> -->
+				<a class="btn-link" target="_blank" href="/offene-stellen​/teamleiter-business-consulting/?posid='.$job['posid'].'">Mehr Erfahren</a>
+			';
 
-            $out .= '
-                <div class="job-category">_' . $job['Criteria']['Deparment'] . '</div>
-                <div class="job-online-from">Online seit: ' . $job['Last Modified'] . '</div>
-                <h3 class="job-title">' . $job['Job Details']['Title of job'] . '</h3>
-                <div class="job-location">' . $job['Criteria']['Work location'] . '</div>
-                <div class="job-description">' . $job['Job Details']['Short description'] . '</div>
-                <a class="btn-link" target="_blank" href="' . $job['Application URL'] . '">Mehr Erfahren</a>
-            ';
-
-            if($a['mode'] == 'light') {
-                $out .= '
-                        </div>
-                    </div>
-                </div>
-                ';
-            }
-        }
+			if($a['mode'] == 'light') {
+				$out .= '
+						</div>
+					</div>
+				</div>
+				';
+			}
+		}
 
         if($a['layout'] == 'slider') {
             $out .= '
@@ -318,40 +311,28 @@ function Generate_job($atts) {
                 </div><!-- //.swiper-wrapper -->
                 
                 <div class="swiper-pagination"></div>
-    
+
                 <div class="swiper-button-prev">Prev</div>
                 <div class="swiper-button-next">Next</div>
             ';
         }
 
-        if($a['mode'] == 'light') {
-            $out .= '
-                </div><!-- //.elementor-row1.jobs-list-main-container -->		
-            ';
-        }
-
-    }
-
-    if($a['single'] == 'offer') {
-        $out .= '
-           <h2>Job id = ' . $jobs[0]['Job Id'] . '</h2>
-           <h3 class="offer-title">' . $jobs[0]['Job Details']['Title What we offer'] . '</h3>
-           <div class="offer-text">' . $jobs[0]['Job Details']['Text What we offer'] . '</div>
-        ';
-    }
-
+		if($a['mode'] == 'light') {
+		$out .= '
+		</div><!-- //.elementor-row1.jobs-list-main-container -->		
+		';
+		}
+	}
 
     return $out;
 }
 add_shortcode('job', 'Generate_job');
 
 
-
 function show_breadcrumbs() {
     astra_get_breadcrumb();
 }
 add_shortcode('breadcrumbs', 'show_breadcrumbs');
-
 
 // Add new skin for posts listing. As we want to show logo image
 add_action('elementor/widgets/widgets_registered', function() {
@@ -367,3 +348,21 @@ add_action('wp_head', function() {
 	</style>
 	<?php
 });
+
+
+function get_single_job($id) {
+	global $job_cache;
+	if(!isset($job_cache[$id])) {
+		$jobs = process_jobs_feed(JOB_FEED_URL);
+		if($jobs) {
+			foreach($jobs as $job) {
+				if($job['posid'] == $id) {
+					$job_cache[$id] = $job;
+					break;
+				}
+			}
+		}
+	}
+
+	return $job_cache[$id];
+}
