@@ -124,7 +124,13 @@
 
 
 .block-kurze {
-  .elementor-text-editor p {margin-bottom: 7px;}
+  .elementor-text-editor p {
+    color: $green;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+  }
   .elementor-widget-button {margin-top: 40px;}
 }//.block-kurze
 

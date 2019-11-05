@@ -794,7 +794,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .karriere .swiper-container ~ .swiper-button-next:hover:before { -webkit-transform: translateX(10px); -ms-transform: translateX(10px); transform: translateX(10px); }
 
-.block-kurze .elementor-text-editor p { margin-bottom: 7px; }
+.block-kurze .elementor-text-editor p { color: #68AF7C; font-size: 16px; font-weight: 700; margin-bottom: 7px; text-transform: uppercase; }
 
 .block-kurze .elementor-widget-button { margin-top: 40px; }
 
@@ -991,6 +991,16 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 .section-contacts_map .map-and-markers .elementor-widget-html .address-3 { top: 36.5%; left: 57.5%; }
 
 .section-contacts_map .map-and-markers .elementor-widget-html .address-4 { top: 46%; left: 43.5%; }
+
+/*.section_row-wrap,
+.inner-section_row-wrap {
+  .elementor-row {
+    @media screen and (min-width: 1025px) {flex-wrap: wrap;}
+  }
+}*/
+.elementor-shortcode .elementor-heading-title { color: #1E3258; font-size: 36px; font-weight: 700; line-height: 1; }
+
+.elementor-shortcode .elementor-text-editor { font-size: 16px; }
 
 /******************************************************************
 *******************************************************************

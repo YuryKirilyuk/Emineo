@@ -202,7 +202,8 @@ function process_jobs_feed($url){
 	}
 	return [];
 }
-/*
+
+
  add_action('wp', function(){
  	if(is_page('jobs-feed')){
  		$url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
@@ -210,7 +211,7 @@ function process_jobs_feed($url){
  		echo '<pre>';print_r($jobs);echo '</pre>';
  	}
  });
-*/
+
 
 function Generate_job($atts) {
 
@@ -293,7 +294,7 @@ function Generate_job($atts) {
 				<div class="job-location">' . $job['Criteria']['Work location'] . '</div>
 				<div class="job-description">' . $job['Job Details']['Short description'] . '</div>
 				<!-- <a class="btn-link" target="_blank" href="' . $job['Application URL'] . '">Mehr Erfahren</a> -->
-				<a class="btn-link" target="_blank" href="/offene-stellen​/teamleiter-business-consulting/?posid='.$job['posid'].'">Mehr Erfahren</a>
+				<a class="btn-link" target="_blank" href="/offene-stellen​/job-description/?posid='.$job['posid'].'">Mehr Erfahren</a>
 			';
 
 			if($a['mode'] == 'light') {
@@ -333,6 +334,7 @@ function show_breadcrumbs() {
     astra_get_breadcrumb();
 }
 add_shortcode('breadcrumbs', 'show_breadcrumbs');
+
 
 // Add new skin for posts listing. As we want to show logo image
 add_action('elementor/widgets/widgets_registered', function() {
