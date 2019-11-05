@@ -92,7 +92,7 @@ function agent_shortcode_cb($atts) {
                         <div class="elementor-element elementor-widget elementor-widget-button" data-element_type="widget" data-widget_type="button.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
-                                    <a href="#" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+                                    <a href="<?php echo get_site_url(); ?>/kontakt/" class="elementor-button-link elementor-button elementor-size-lg" role="button">
                                         <span class="elementor-button-content-wrapper">
                                             <span class="elementor-button-text">CONTACT</span>
                                         </span>

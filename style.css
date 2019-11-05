@@ -427,7 +427,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-jobs .single-job-inner-container { transition: all 0.3s linear; }
 
-.section-jobs .single-job-inner-container:hover { box-shadow: 0 0 15px -3px rgba(0, 0, 0, 0.3); -webkit-transform: scale(1.03); -ms-transform: scale(1.03); transform: scale(1.03); }
+@media screen and (min-width: 581px) { .section-jobs .single-job-inner-container:hover { box-shadow: 0 0 15px -3px rgba(0, 0, 0, 0.3); -webkit-transform: scale(1.03); -ms-transform: scale(1.03); transform: scale(1.03); } }
 
 .section-jobs:not(.karriere) .jobs-list-main-container { margin-top: 30px; display: inline-block; }
 
@@ -740,9 +740,13 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .section-branchenfokus.karriere-page { margin-bottom: 0; padding: 0 0 75px; }
 
+.karriere.section-jobs .elementor-container { max-width: 1230px; }
+
 .karriere .jobs-list-main-container { -webkit-align-items: center; -ms-flex-align: center; align-items: center; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
 
-.karriere .swiper-container { padding: 30px; }
+.karriere .swiper-container { margin-bottom: 35px; }
+
+@media screen and (min-width: 581px) { .karriere .swiper-container { margin-bottom: 0; padding: 30px; } }
 
 .karriere .swiper-container .single-job-col-4 { height: auto; width: 50%; }
 
@@ -776,11 +780,15 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .karriere .swiper-container ~ .swiper-button-prev { -webkit-order: 1; -ms-flex-order: 1; order: 1; padding-left: 25px; }
 
+@media screen and (min-width: 581px) { .karriere .swiper-container ~ .swiper-button-prev { margin-left: 20px; } }
+
 .karriere .swiper-container ~ .swiper-button-prev:before { border-right: 12px solid #1E3258; left: 0; }
 
 .karriere .swiper-container ~ .swiper-button-prev:hover:before { -webkit-transform: translateX(-10px); -ms-transform: translateX(-10px); transform: translateX(-10px); }
 
 .karriere .swiper-container ~ .swiper-button-next { -webkit-order: 3; -ms-flex-order: 3; order: 3; padding-right: 25px; }
+
+@media screen and (min-width: 581px) { .karriere .swiper-container ~ .swiper-button-next { margin-right: 20px; } }
 
 .karriere .swiper-container ~ .swiper-button-next:before { border-left: 12px solid #1E3258; right: 0; }
 

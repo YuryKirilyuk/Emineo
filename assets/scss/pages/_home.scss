@@ -256,9 +256,11 @@
   .single-job-col-4.swiper-slide {overflow: visible;}
   .single-job-inner-container {
     transition: $default-transition;
-    &:hover {
-      box-shadow: 0 0 15px -3px rgba(0,0,0,.3);
-      transform: scale(1.03);
+    @media screen and (min-width: 581px) {
+      &:hover {
+        box-shadow: 0 0 15px -3px rgba(0,0,0,.3);
+        transform: scale(1.03);
+      }
     }
   }//.single-job-inner-container
 

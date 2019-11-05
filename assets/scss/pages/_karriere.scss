@@ -5,6 +5,12 @@
 
 .karriere {
 
+  &.section-jobs {
+    .elementor-container {
+      max-width: 1230px;
+    }
+  }
+
   .jobs-list-main-container {
     align-items: center;
     display: flex;
@@ -13,8 +19,12 @@
   }
 
   .swiper-container {
-    //margin-bottom: 35px;
-    padding: 30px;
+    margin-bottom: 35px;
+    @media screen and (min-width: 581px) {
+      margin-bottom: 0;
+      padding: 30px;
+    }
+
 
     .single-job-col-4 {
       height: auto;
@@ -86,6 +96,9 @@
     ~ .swiper-button-prev {
       order: 1;
       padding-left: 25px;
+      @media screen and (min-width: 581px) {
+        margin-left: 20px;
+      }
       &:before {
         border-right: 12px solid $blue-dark;
         left: 0;
@@ -95,6 +108,9 @@
     ~ .swiper-button-next {
       order: 3;
       padding-right: 25px;
+      @media screen and (min-width: 581px) {
+        margin-right: 20px;
+      }
       &:before {
         border-left: 12px solid $blue-dark;
         right: 0;
