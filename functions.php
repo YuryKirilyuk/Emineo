@@ -30,6 +30,7 @@ include "shortcodes/agent.php";
 include "shortcodes/single-job.php";
 include "shortcodes/story-filter.php";
 include "shortcodes/news-filter.php";
+include "shortcodes/job-filter.php";
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
@@ -160,47 +161,55 @@ add_action( 'init', function(){
 });
 
 function process_jobs_feed($url){
-	if(@simplexml_load_file($url)){
-		$string = file_get_contents($url);
-		$feeds = simplexml_load_string($string);
-	}else{
-		return '';
-	}
-	if(!empty($feeds)){
-		$job_details = array();
-		$i = 0;
-		foreach($feeds->vacancies->PosID as $pos_id) {
-			$single_job = [];
-			$single_job['posid'] = $pos_id;
-			$single_job['Job Id'] = htmlspecialchars($pos_id);
-			$single_job['Last Modified'] = htmlspecialchars($feeds->{'vacancies'}->{'LastModified'}[$i]);
-			$single_job['HR Manager'] = htmlspecialchars($feeds->{'vacancies'}->{'Verantwortlich_HR'}[$i]);
-			$single_job['Job Details'] = array(
-				'Title of job' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Stellentitel'}),
-				'Supplement to job title' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Zusatz_Stellentitel'}),
-				'Title of tasks' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TitelAufgaben'}),
-				'Text for tasks' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TextAufgaben'}),
-				'Title of requirements' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TitelAnforderungen'}),
-				'Text for requirements' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TextAnforderungen'}),
-				'Title What we offer' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TitelWirbieten'}),
-				'Text What we offer' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TextWirbieten'}),
-				'Outro' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Abspann'}),
-				'Short description' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Kurzbeschreibung'})
-			);
-			$single_job['Criteria'] = array(
-				'Type of employment' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Beschäftigungsart'}),
-				'Terminability' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Befristung'}),
-				'Work as' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'EinstiegAls'}),
-				'Deparment' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Unternehmensbereich'}),
-				'Work location' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Arbeitsort'}),
-			);
-			$single_job['Choice of image'] = htmlspecialchars($feeds->{'vacancies'}->{'Bildwahl'}[$i]);
-			$single_job['Layout Design'] = htmlspecialchars($feeds->{'vacancies'}->{'Inserate_Layout'}[$i]);
-			$single_job['Application URL'] = htmlspecialchars($feeds->{'vacancies'}->{'Apply_url'}[$i]);
-			$job_details[] = $single_job;
-			$i++;
+	global $jobs_feed_cache;
+	
+	if(!isset($jobs_feed_cache) || (isset($jobs_feed_cache) && !$jobs_feed_cache)) {
+		if(@simplexml_load_file($url)){
+			$string = file_get_contents($url);
+			$feeds = simplexml_load_string($string);
+		}else{
+			return '';
 		}
-		return $job_details;
+		if(!empty($feeds)){
+			$job_details = array();
+			$i = 0;
+			foreach($feeds->vacancies->PosID as $pos_id) {
+				$single_job = [];
+				$single_job['posid'] = $pos_id;
+				$single_job['Job Id'] = htmlspecialchars($pos_id);
+				$single_job['Last Modified'] = htmlspecialchars($feeds->{'vacancies'}->{'LastModified'}[$i]);
+				$single_job['HR Manager'] = htmlspecialchars($feeds->{'vacancies'}->{'Verantwortlich_HR'}[$i]);
+				$single_job['Job Details'] = array(
+					'Title of job' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Stellentitel'}),
+					'Supplement to job title' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Zusatz_Stellentitel'}),
+					'Title of tasks' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TitelAufgaben'}),
+					'Text for tasks' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TextAufgaben'}),
+					'Title of requirements' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TitelAnforderungen'}),
+					'Text for requirements' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TextAnforderungen'}),
+					'Title What we offer' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TitelWirbieten'}),
+					'Text What we offer' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'TextWirbieten'}),
+					'Outro' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Abspann'}),
+					'Short description' => htmlspecialchars($feeds->{'vacancies'}->{'Ausschreibungstext'}[$i]->{'Kurzbeschreibung'})
+				);
+				$single_job['Criteria'] = array(
+					'Type of employment' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Beschäftigungsart'}),
+					'Terminability' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Befristung'}),
+					'Work as' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'EinstiegAls'}),
+					'Deparment' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Unternehmensbereich'}),
+					'Work location' => htmlspecialchars($feeds->{'vacancies'}->{'Suchkriterien'}[$i]->{'Arbeitsort'}),
+				);
+				$single_job['Choice of image'] = htmlspecialchars($feeds->{'vacancies'}->{'Bildwahl'}[$i]);
+				$single_job['Layout Design'] = htmlspecialchars($feeds->{'vacancies'}->{'Inserate_Layout'}[$i]);
+				$single_job['Application URL'] = htmlspecialchars($feeds->{'vacancies'}->{'Apply_url'}[$i]);
+				$job_details[] = $single_job;
+				$jobs_feed_cache[] = $single_job;
+				$i++;
+			}
+			return $job_details;
+		}
+	}
+	else {
+		return $jobs_feed_cache;
 	}
 	return [];
 }
@@ -208,8 +217,7 @@ function process_jobs_feed($url){
 
  add_action('wp', function(){
  	if(is_page('jobs-feed')){
- 		$url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
- 		$jobs = process_jobs_feed($url);
+ 		$jobs = process_jobs_feed(JOB_FEED_URL);
  		echo '<pre>';print_r($jobs);echo '</pre>';
  	}
  });
@@ -226,8 +234,7 @@ function Generate_job($atts) {
         'layout' => ''
 	), $atts );
 
-    $url = 'https://recruitingapp-2895.umantis.com/XMLExport/133';
-	$jobs = process_jobs_feed($url);
+	$jobs = process_jobs_feed(JOB_FEED_URL);
 	$out = '';
 	if($a['mode'] == 'light') {
 		$out = '<div class="elementor-row1 jobs-list-main-container">';
@@ -279,7 +286,10 @@ function Generate_job($atts) {
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
             ';
-        }
+		}
+		
+		$jobs = apply_filters('emineo_jobs', $jobs);
+
 		foreach($jobs as $job) {
 			if($a['mode'] == 'light') {
 				$out .= '
@@ -349,6 +359,26 @@ add_action('wp_head', function() {
 		.elementor-posts--skin-customcards .elementor-post__thumbnail {
 			padding-bottom: 0 !important;
 		}
+		body.single-emineo_download .emineo_download.post-password-required .entry-content {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(0,0,0,0.8);
+			z-index: 999999;
+			color: black;
+		}
+
+		body.single-emineo_download .emineo_download.post-password-required .entry-content form {
+			background-color: white;
+			width: 50%;
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 100px;
+			padding: 50px;
+		}
 	</style>
 	<?php
 });
@@ -373,23 +403,6 @@ function get_single_job($id) {
 
 add_action('wp_head', function() {
 	?>
-	<style>
-		.success-stories-filter li ul {
-			display: none;
-		}
-		.success-stories-filter > ul > li {
-			background-color: #EFF1F4;
-			padding: 12px 20px;
-		}
-		.success-stories-filter > ul {
-			list-style: none;
-			margin: 0;
-		}
-		.success-stories-filter a {
-			font-weight: bold;
-		}
-	</style>
-
 	<script>
 		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
 	</script>
@@ -466,7 +479,7 @@ function get_single_item_html($post, $taxonomy = '') {
 				</a>
 			</div>
 			<div class="single-item-title">
-				<h3><?php echo $post->post_title; ?></h3>
+				<h3><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></h3>
 			</div>
 			<div class="single-item-description">
 					<?php echo get_the_excerpt($post); ?>
@@ -481,3 +494,30 @@ function get_single_item_html($post, $taxonomy = '') {
 
 	return ob_get_clean();
 }
+
+function emineo_jobs_cb($jobs) {
+
+	if(isset($_GET['job_categories']) && $_GET['job_categories']) {
+		foreach($jobs as $key => $job) {
+			if(!in_array($job['Criteria']['Deparment'], $_GET['job_categories'])) {
+				unset($jobs[$key]);
+			}
+		}
+	}
+
+	return $jobs;
+}
+add_filter('emineo_jobs', 'emineo_jobs_cb');
+
+
+// Download Custom Post type
+add_action('init', 'register_download_custom_post_type');
+function register_download_custom_post_type() {
+	$args = array(
+        'public'    => true,
+        'label'     => __( 'Downloads', 'emineo-theme' ),
+        'menu_icon' => 'dashicons-download',
+    );
+    register_post_type( 'emineo_download', $args );
+}
+

@@ -180,7 +180,7 @@ jQuery(function($){
 
     jQuery(document).on('click', '.success-stories-filter > ul > li a', function(e) {
         e.preventDefault();
-        jQuery(this).closest('li').find('ul').slideToggle();
+        jQuery(this).toggleClass('active').closest('li').find('ul').slideToggle();
     });
 
     jQuery(document).on('click', '.success-stories-filter li li a', function(e) {
