@@ -1,0 +1,17 @@
+/*.section_row-wrap,
+.inner-section_row-wrap {
+  .elementor-row {
+    @media screen and (min-width: 1025px) {flex-wrap: wrap;}
+  }
+}*/
+.elementor-shortcode  {
+  .elementor-heading-title {
+    color: $blue-dark;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .elementor-text-editor {
+    font-size: 16px;
+  }
+}//.elementor-shortcode
