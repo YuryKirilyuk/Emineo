@@ -1,7 +1,3 @@
-.service-page {
-
-}//.service-page
-
 
 .section-text {
   .elementor-col-33 {
@@ -84,6 +80,15 @@
 }//.section-services
 
 
+.referenzen-logos-carousel {
+  .swiper-slide-image {
+    //filter: grayscale(1);
+    //transition: $default-transition;
+    //&:hover {filter: none;}
+  }
+}//.referenzen-logos-carousel
+
+
 .elementor-widget-image-carousel {
   z-index: 0;
 
@@ -97,11 +102,11 @@
   }
   &:before {
     background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0) 100%);
-    left: 0;
+    left: -10px;
   }
   &:after {
     background: linear-gradient(-90deg, #FFF 0%, rgba(255, 255, 255, 0) 100%);
-    right: 0;
+    right: -10px;
   }
 
   .elementor-image-carousel-wrapper {

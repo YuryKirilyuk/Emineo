@@ -1,9 +1,44 @@
+var Cache = {
+    cacheData: {},
+
+    get: (key) => {
+        if (Cache.cacheData.hasOwnProperty(key) && Cache.cacheData[key].val) {
+            return Cache.cacheData[key].val;
+        }
+        return false;
+    },
+
+    set: (key, value, expiry) => {
+
+        Cache.clear(key); // Clear before we store it so we can clean up the timeout.
+
+        var to = false;
+
+        Cache.cacheData[key] = {
+            expiry: expiry,
+            val: value,
+            timeout: to,
+        };
+    },
+
+    clear: (key) => {
+        if (Cache.cacheData.hasOwnProperty(key)) {
+
+            delete Cache.cacheData[key];
+            return true;
+        }
+
+        return false;
+    },
+};
+
+
 jQuery(window).on('load', function () {
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         jQuery('body').addClass('ios');
-	} else{
+    } else{
         jQuery('body').addClass('web');
-	}
+    }
 
     jQuery('.elementor-accordion-item').first().addClass('active');
 
@@ -15,31 +50,31 @@ jQuery(window).on('load', function () {
    ========================================================================== */
 
 jQuery(window).scroll(function() {
-	
-		
-	});
+
+
+});
 
 /* ==========================================================================
    When the window is resized, do
    ========================================================================== */
 
 jQuery(window).resize(function() {
-		
-		
-	});
+
+
+});
 
 
 jQuery(function($){
 
-	$('.elementor-accordion-item').on('click', function(){
-		$(this).addClass('active').siblings().removeClass('active');
-	});
+    $('.elementor-accordion-item').on('click', function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
 
-	$('.support-toggle').on('click', function() {
+    $('.support-toggle').on('click', function() {
         $('.section-support').toggleClass('show');
     });
 
-	$('.section-services .elementor-inner-column').on('mouseenter mouseleave', function() {
+    $('.section-services .elementor-inner-column').on('mouseenter mouseleave', function() {
         $(this).find('.elementor-icon-box-description').slideToggle();
         $(this).find('.elementor-widget-button').slideToggle();
     });
@@ -80,8 +115,6 @@ jQuery(function($){
     }
 
 
-
-
     if($('.elementor-widget-testimonial-carousel').length){
         var testimonialSwiper = document.querySelector('.elementor-widget-testimonial-carousel .swiper-container').swiper;
         testimonialSwiper.destroy();
@@ -98,9 +131,6 @@ jQuery(function($){
             },
         });
     }
-
-
-
 
 
 
@@ -145,7 +175,40 @@ jQuery(function($){
         //$('.section-tab').attr('data-tab', address);
         $('#' + address + '').addClass('active').siblings().removeClass('active');
 
-    })
+    });
+
+
+    jQuery(document).on('click', '.success-stories-filter > ul > li a', function(e) {
+        e.preventDefault();
+        jQuery(this).closest('li').find('ul').slideToggle();
+    });
+
+    jQuery(document).on('click', '.success-stories-filter li li a', function(e) {
+        e.preventDefault();
+        var term_id = jQuery(this).data('itemid');
+        var type = jQuery(this).data('type');
+        var post_type = jQuery(this).data('posttype');
+        if(!Cache.get('term_'+term_id+'_items')) {
+            var ajaxdata = {
+                action: 'ajax_get_filtered_data',
+                term_id: term_id,
+                type: type,
+                post_type: post_type
+            };
+            jQuery.post(ajaxurl, ajaxdata, function(res) {
+                Cache.set('term_'+term_id+'_items',res);
+                jQuery('.story-description').html(res.description);
+                jQuery('.story-items-inner-container').html(res.items);
+            });
+        }
+        else {
+            var result = Cache.get('term_'+term_id+'_items');
+            if(result) {
+                jQuery('.story-description').html(result.description);
+                jQuery('.story-items-inner-container').html(result.items);
+            }
+        }
+    });
 
 
 

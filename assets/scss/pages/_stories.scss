@@ -1,6 +1,3 @@
-
-// SUCCESS STORIES
-
 .success-stories-content {
   font-family: $base-font-family;
 
@@ -66,6 +63,7 @@
     }//.elementor-nav-menu__container
   }//.stories-nav
 
+
   .stories-posts {
 
     &.elementor-posts__hover-gradient .elementor-post__card {
@@ -128,5 +126,49 @@
         right: 0;
       }
     }
-  }
+  }//.stories-posts
+
 }//.success-stories-content
+
+
+.success-stories-filter {
+  font-size: 16px;
+
+  .category-title {
+    align-items: center;
+    background: $grey-light;
+    color: $main-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    &:hover {background: darken($grey-light, 5%);}
+    &.active {
+      .menu-arrow {transform: rotateX(180deg);}
+    }
+    .menu-arrow {
+      width: 0;
+      height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-bottom: 10px solid #68AF7C;
+      transition: all 0.3s linear;
+    }
+  }//.category-title
+
+  ul {
+    list-style: none;
+    margin: 0;
+    a {
+      display: block;
+      font-weight: bold;
+    }
+  }
+
+  li ul {
+    display: none;
+    padding: 10px 0;
+    a {padding: 5px 0 5px 20px;}
+  }
+
+
+}//.success-stories-filter

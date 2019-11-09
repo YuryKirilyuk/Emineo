@@ -28,6 +28,8 @@ function child_enqueue_styles() {
  */
 include "shortcodes/agent.php";
 include "shortcodes/single-job.php";
+include "shortcodes/story-filter.php";
+include "shortcodes/news-filter.php";
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
@@ -367,4 +369,115 @@ function get_single_job($id) {
 	}
 
 	return $job_cache[$id];
+}
+
+add_action('wp_head', function() {
+	?>
+	<style>
+		.success-stories-filter li ul {
+			display: none;
+		}
+		.success-stories-filter > ul > li {
+			background-color: #EFF1F4;
+			padding: 12px 20px;
+		}
+		.success-stories-filter > ul {
+			list-style: none;
+			margin: 0;
+		}
+		.success-stories-filter a {
+			font-weight: bold;
+		}
+	</style>
+
+	<script>
+		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+	</script>
+	<?php
+});
+
+add_action('wp_ajax_ajax_get_filtered_data', 'ajax_get_filtered_data_cb');
+add_action('wp_ajax_nopriv_ajax_get_filtered_data', 'ajax_get_filtered_data_cb');
+function ajax_get_filtered_data_cb() {
+	$json = [
+		'description' => '',
+		'items' => ''
+	];
+
+	$term_id = $_POST['term_id'];
+	$taxonomy = $_POST['type'];
+	$post_type = $_POST['post_type'];
+	if($post_type !== 'story' && $post_type !== 'post') {
+		$post_type = 'story';
+	}
+
+	$term = get_term_by('id', $term_id, $taxonomy);
+	if($term) {
+		$json['description'] = $term->term_description;
+
+		// get items
+		$args = [
+			'post_type' => $post_type,
+			'posts_per_page' => -1,
+			'post_status' => 'publish',
+			'tax_query' => [
+				[
+					'taxonomy' => $taxonomy,
+					'field' => 'id',
+					'terms' => [$term_id]
+				]
+			]
+		];
+
+		$items = get_posts($args);
+		if($items) {
+			foreach($items as $item) {
+				$json['items'] .= get_single_item_html($item, $taxonomy);
+			}
+		}
+	}
+
+	wp_send_json($json);
+}
+
+
+function get_single_item_html($post, $taxonomy = '') {
+	ob_start();
+
+	$term_title = '';
+	if($taxonomy) {
+		$terms = get_the_terms($post, $taxonomy);
+		if($terms) {
+			$term_title = $terms[0]->name;
+		}
+	}
+
+	$date = new DateTime($post->post_date);
+	?>
+	<div class="single-item-container">
+		<div class="single-item-inner-container">
+			<div class="single-item-thumbnail">
+				<a href="<?php echo get_permalink($post->ID); ?>">
+					<?php
+					if(has_post_thumbnail($post)) {
+						echo get_the_post_thumbnail($post, 'medium_large');
+					}
+					?>
+				</a>
+			</div>
+			<div class="single-item-title">
+				<h3><?php echo $post->post_title; ?></h3>
+			</div>
+			<div class="single-item-description">
+					<?php echo get_the_excerpt($post); ?>
+			</div>
+			<?php if($term_title) { ?>
+				<div class="single-item-badge"><?php echo $term_title; ?></div>
+			<?php } ?>
+			<div class="single-item-date"><?php echo $date->format('d F, Y'); ?></div>
+		</div>
+	</div>
+	<?php
+
+	return ob_get_clean();
 }

@@ -317,7 +317,18 @@
     font-size: 12px;
     font-weight: bold;
     line-height: 2.58;
+    margin-right: -22px;
+    position: relative;
     text-transform: uppercase;
+    &:after {
+      background: $grey-light;
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 22px;
+    }
   }
 
   .job-title {
@@ -419,6 +430,7 @@
     text-transform: uppercase;
     &:hover {color: $blue-dark;}
   }
+  .section-jobs-main .btn-link:hover {color: #fff;}
 
 
   .elementor-button-link {

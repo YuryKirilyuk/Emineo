@@ -43,10 +43,10 @@ function single_job_sc($atts) {
         else if($a['type'] == 'criteria') {
             ?>
             <div class="elementor-text-editor elementor-clearfix">
-                <p>Type of employment: <?php echo $job['Criteria']['Type of employment']; ?></p>
-                <p>Terminability: <?php echo $job['Criteria']['Terminability']; ?></p>
-                <p>Work as: <?php echo $job['Criteria']['Work as']; ?></p>
-                <p>Deparment: <?php echo $job['Criteria']['Deparment']; ?></p>
+                <p>Anstellungsart: <?php echo $job['Criteria']['Type of employment']; ?></p>
+                <p>Anstellungsdauer: <?php echo $job['Criteria']['Terminability']; ?></p>
+                <p>Stufe: <?php echo $job['Criteria']['Work as']; ?></p>
+                <p>Abteilung: <?php echo $job['Criteria']['Deparment']; ?></p>
                 <p>Arbeitsort: <?php echo $job['Criteria']['Work location']; ?></p>
             </div>
             <?php

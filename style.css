@@ -453,7 +453,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .home .section-jobs .job-online-from { display: none; }
 
-.section-jobs .job-online-from { color: #787C85; font-size: 12px; font-weight: bold; line-height: 2.58; text-transform: uppercase; }
+.section-jobs .job-online-from { color: #787C85; font-size: 12px; font-weight: bold; line-height: 2.58; margin-right: -22px; position: relative; text-transform: uppercase; }
+
+.section-jobs .job-online-from:after { background: #EFF1F4; content: ''; height: 100%; position: absolute; right: 0; top: 0; width: 22px; }
 
 .section-jobs .job-title { font-weight: bold; }
 
@@ -494,6 +496,8 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 .section-jobs .btn-link { color: #68AF7C; display: block; font-size: 16px; font-weight: bold; margin-bottom: 7px; margin-top: 25px; text-transform: uppercase; }
 
 .section-jobs .btn-link:hover { color: #1E3258; }
+
+.section-jobs .section-jobs-main .btn-link:hover { color: #fff; }
 
 .section-jobs .elementor-button-link { margin-top: 50px; width: 100%; }
 
@@ -622,9 +626,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .elementor-widget-image-carousel:before, .elementor-widget-image-carousel:after { bottom: 0; content: ''; position: absolute; top: 0; width: 137px; z-index: 10; }
 
-.elementor-widget-image-carousel:before { background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0) 100%); left: 0; }
+.elementor-widget-image-carousel:before { background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0) 100%); left: -10px; }
 
-.elementor-widget-image-carousel:after { background: linear-gradient(-90deg, #FFF 0%, rgba(255, 255, 255, 0) 100%); right: 0; }
+.elementor-widget-image-carousel:after { background: linear-gradient(-90deg, #FFF 0%, rgba(255, 255, 255, 0) 100%); right: -10px; }
 
 .elementor-widget-image-carousel .elementor-image-carousel-wrapper { padding-bottom: 10px; padding-top: 10px; overflow: visible; }
 
@@ -708,11 +712,29 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { white-space: nowrap; }
 
 .success-stories-content .stories-posts .elementor-post .elementor-post__meta-data { color: #fff; font-family: "Gilroy", sans-serif; line-height: 40px; padding: 20px; position: absolute; top: 0; right: 0; }
 
+.success-stories-filter { font-size: 16px; }
+
+.success-stories-filter .category-title { -webkit-align-items: center; -ms-flex-align: center; align-items: center; background: #EFF1F4; color: #1E3258; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; padding: 15px 20px; }
+
+.success-stories-filter .category-title:hover { background: #e0e4ea; }
+
+.success-stories-filter .category-title.active .menu-arrow { -webkit-transform: rotateX(180deg); transform: rotateX(180deg); }
+
+.success-stories-filter .category-title .menu-arrow { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 10px solid #68AF7C; transition: all 0.3s linear; }
+
+.success-stories-filter ul { list-style: none; margin: 0; }
+
+.success-stories-filter ul a { display: block; font-weight: bold; }
+
+.success-stories-filter li ul { display: none; padding: 10px 0; }
+
+.success-stories-filter li ul a { padding: 5px 0 5px 20px; }
+
 .single-story { background: #fff; }
 
 .single-story .wichtigste-in-kurze .elementor-widget-wrap { background: #EFF1F4; padding: 50px; }
 
-.single-story .key-facts .elementor-widget-wrap { padding-top: 50px; }
+.single-story .key-facts .elementor-widget-wrap { padding-top: 41px; }
 
 @media screen and (min-width: 769px) { .single-story .key-facts .elementor-image-box-wrapper { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: row-reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; } }
 
