@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5,h6 {
   top: 50%;
   transition: $default-transition;
   width: 465px;
-  z-index: 999;
+  z-index: 99;
   @media screen and (max-width: 480px) {
     width: 100%;
   }

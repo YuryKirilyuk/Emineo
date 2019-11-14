@@ -187,13 +187,16 @@
   }
 
   .elementor-post__badge {
+    align-items: center;
     background-color: #E1E2E9 !important;
     border-radius: 0 !important;
     height: 60px;
+    display: flex;
+    justify-content: center;
     margin: 0 !important;
-    padding: 0;
+    padding: 0 10px;
     text-align: center;
-    width: 148px;
+    width: 150px;
     img {
       max-width: 100%;
       height: auto;

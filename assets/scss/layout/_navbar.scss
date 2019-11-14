@@ -1,4 +1,5 @@
 #masthead {
+  z-index: 999;
 
   .ast-container {
     @media screen and (max-width: 1400px) {
@@ -13,6 +14,7 @@
 
   .site-logo-img {padding-right: 0;}
 
+  .ast-menu-toggle {border: none;}
 
   .ast-mobile-menu-buttons {
     @media screen and (max-width: 921px) {order: 3;}
@@ -28,7 +30,7 @@
       font-weight: bold;
       text-transform: uppercase;
       &:hover {color: $green;}
-      @media screen and (max-width: 1050px) {font-size: 1.4rem;}
+      @media screen and (max-width: 1150px) {font-size: 1.4rem;}
       @media screen and (min-width: 922px) and (max-width: 935px) {font-size: 1.2rem;}
       @media screen and (min-width: 922px) and (max-width: 1250px) {
         padding-left: .5rem;
@@ -38,16 +40,35 @@
     &.current-menu-item > a {color: $green;}
   }
 
+  .main-header-bar .main-header-bar-navigation .menu-item-has-children>a:after,
+  .main-header-bar .main-header-bar-navigation .page_item_has_children>a:after {
+    @media screen and (max-width: 1200px) {
+      margin-left: 5px;
+    }
+  }
+
+  .site-logo-img .custom-logo-link img {
+    @media screen and (max-width: 1024px) and (min-width: 922px) {
+      max-width: 150px;
+    }
+  }
+
   .main-header-menu .current-menu-ancestor > a {color: $blue-dark;}
   .main-header-menu.submenu-with-border .sub-menu {
+    padding: 10px 0;
     a {
       color: $blue-dark;
       &:hover {color: $green;}
+      @media screen and (min-width: 922px) {padding: .5em 1em;}
     }
   }
 
   .icon-user {
-    @media screen and (min-width: 1351px) {margin-left: 6rem;}
+    @media screen and (min-width: 1410px) {margin-left: 6rem;}
+    @media screen and (max-width: 1409px) {margin-left: 5rem;}
+    @media screen and (max-width: 1360px) {margin-left: 4rem;}
+    @media screen and (max-width: 1200px) {margin-left: 2rem;}
+    @media screen and (max-width: 1024px) {margin-left: 1rem;}
     a {
       background: url('data:image/svg+xml;utf8,<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="4.5" r="3.5" stroke="%231E3258" stroke-width="2"/><path d="M1 15C1 13.3431 2.34315 12 4 12H12C13.6569 12 15 13.3431 15 15V17H1V15Z" stroke="%231E3258" stroke-width="2"/></svg>') no-repeat center;
       color: transparent !important;
@@ -74,8 +95,9 @@
   .btn {
     align-items: center;
     display: flex;
-    margin-left: 3rem;
-    @media screen and (max-width: 1300px) {
+    margin-left: 2rem;
+    flex-shrink: 0;
+    @media screen and (max-width: 1350px) {
       font-size: 1.4rem;
       line-height: 1.4;
       margin-left: 1rem;
