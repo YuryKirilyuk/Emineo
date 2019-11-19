@@ -44,9 +44,22 @@ add_shortcode('news-filter-description', 'news_filter_description_sc');
 
 function news_filter_items_sc() {
     ob_start();
+    $news = get_posts([
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => -1
+    ]);
     ?>
     <div class="story-items-container">
-        <div class="story-items-inner-container"></div>
+        <div class="story-items-inner-container">
+        <?php
+            if($news) {
+                foreach($news as $item) {
+                    echo get_single_item_html($item, 'category');
+                }
+            }
+            ?>
+        </div>
     </div>
     <?php
     return ob_get_clean();

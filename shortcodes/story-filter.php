@@ -51,10 +51,10 @@ function story_filter_sc($atts) {
 add_shortcode('story-filter', 'story_filter_sc');
 
 
-function story_filter_description_sc() {
+function story_filter_description_sc($atts, $content) {
     ob_start();
     ?>
-    <div class="story-description"></div>
+    <div class="story-description"><?php echo apply_filters('the_content', $content); ?></div>
     <?php
 
     return ob_get_clean();
@@ -64,9 +64,22 @@ add_shortcode('story-filter-description', 'story_filter_description_sc');
 
 function story_filter_items_sc() {
     ob_start();
+    $stories = get_posts([
+        'post_type' => 'story',
+        'post_status' => 'publish',
+        'posts_per_page' => -1
+    ]);
     ?>
     <div class="story-items-container">
-        <div class="story-items-inner-container"></div>
+        <div class="story-items-inner-container">
+            <?php
+            if($stories) {
+                foreach($stories as $story) {
+                    echo get_single_item_html($story, 'industry', 'service');
+                }
+            }
+            ?>
+        </div>
     </div>
     <?php
     return ob_get_clean();

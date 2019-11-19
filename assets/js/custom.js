@@ -212,4 +212,37 @@ jQuery(function($){
 
 
 
+    jQuery('.password-form a').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#download-password-field',
+
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#download-password-field';
+				}
+			}
+		}
+    });
+    
+    jQuery(document).on('submit', '#password-form', function(e) {
+        e.preventDefault();
+        var ajaxdata = {
+            action: 'check_download_password',
+            download_password: jQuery(this).find('#download-password-field').val()
+        };
+        jQuery.post(ajaxurl, ajaxdata, function(res){
+            if(res.download_url) {
+                window.location.href = res.download_url;
+            }
+        });
+    });
+
+
+
 });

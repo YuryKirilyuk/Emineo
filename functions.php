@@ -13,13 +13,17 @@
  */
 define( 'CHILD_THEME_EMINEO_THEME_VERSION', '1.0.0' );
 define( 'JOB_FEED_URL', 'https://recruitingapp-2895.umantis.com/XMLExport/133' );
+define( 'EMINEO_ENCRYPTION_KEY', '!@#$%^&*');
 
 /**
  * Enqueue styles
  */
 function child_enqueue_styles() {
 
+	wp_enqueue_style('magnific-popup', get_stylesheet_directory_uri().'/css/magnific-popup.min.css');
 	wp_enqueue_style( 'emineo-theme-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_EMINEO_THEME_VERSION, 'all' );
+
+	wp_enqueue_script('magnific-popup', get_stylesheet_directory_uri().'/assets/js/magnific-popup.min.js', ['jquery']);
 
 }
 
@@ -426,7 +430,7 @@ function ajax_get_filtered_data_cb() {
 
 	$term = get_term_by('id', $term_id, $taxonomy);
 	if($term) {
-		$json['description'] = $term->term_description;
+		$json['description'] = $term->description;
 
 		// get items
 		$args = [
@@ -454,16 +458,26 @@ function ajax_get_filtered_data_cb() {
 }
 
 
-function get_single_item_html($post, $taxonomy = '') {
+function get_single_item_html($post, $taxonomy = '', $taxonomy2 = '') {
 	ob_start();
 
 	$term_title = '';
+
+	$real_tax = '';
 	if($taxonomy) {
-		$terms = get_the_terms($post, $taxonomy);
+		$real_tax = $taxonomy;
+	}
+	else if($taxonomy2) {
+		$real_tax = $taxonomy2;
+	}
+
+	if($real_tax) {
+		$terms = get_the_terms($post, $real_tax);
 		if($terms) {
 			$term_title = $terms[0]->name;
 		}
 	}
+	
 
 	$date = new DateTime($post->post_date);
 	?>
@@ -521,3 +535,133 @@ function register_download_custom_post_type() {
     register_post_type( 'emineo_download', $args );
 }
 
+add_action('wp_footer', function() {
+	?>
+	<!-- form itself -->
+	<form id="password-form" class="white-popup-block mfp-hide">
+		<h1>Enter password to download</h1>
+		<div>
+			<input type="text" id="download-password-field" placeholder="<?php echo __('Password', 'emineo-theme'); ?>" name="download_password" />
+		</div>
+		<br>
+		<div style="text-align: center;">
+			<input type="submit" value="<?php echo __('Submit', 'emineo-theme'); ?>" />
+		</div>
+	</form>
+	<style>
+		form#password-form {
+			width: 50%;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: white;
+			padding: 30px;
+			position: relative;
+		}
+
+		form#password-form h1 {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+
+		form#password-form input[type="text"] {
+			width: 100%;
+		}
+		@media(max-width: 768px) {
+			form#password-form {
+				width: 80%;
+			}
+		}
+		@media(max-width: 480px) {
+			form#password-form {
+				width: 95%;
+			}
+		}
+	</style>
+	<?php
+});
+
+add_action('wp_ajax_check_download_password', 'check_download_password_cb');
+add_action('wp_ajax_nopriv_check_download_password', 'check_download_password_cb');
+function check_download_password_cb() {
+	$json = [
+		'download_url' => ''
+	];
+
+	$password = $_POST['download_password'];
+
+	$args = [
+		'post_type' => 'emineo_download',
+		'post_status' => 'publish',
+		'posts_per_page' => 1,
+		'meta_query' => [
+			[
+				'key' => 'password',
+				'value' => $password
+			]
+		]
+	];
+	$downloads = get_posts($args);
+	if($downloads) {
+		$encrypted = convert(get_post_meta($downloads[0]->ID, 'password', true), EMINEO_ENCRYPTION_KEY);
+		$json['download_url'] = add_query_arg('download_pass_hash', $encrypted, get_post_meta($downloads[0]->ID, 'redirect_to', true));
+	}
+
+	wp_send_json($json);
+}
+
+add_action('init', function() {
+
+	$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$url = parse_url($url, PHP_URL_SCHEME) . '://' . parse_url($url, PHP_URL_HOST) . parse_url($url, PHP_URL_PATH);
+
+	$args = [
+		'post_type' => 'emineo_download',
+		'post_status' => 'publish',
+		'posts_per_page' => 1,
+		'meta_query' => [
+			[
+				'key' => 'redirect_to',
+				'value' => $url
+			]
+		]
+	];
+	$downloads = get_posts($args);
+
+	if(isset($_GET['download_pass_hash'])) {
+		$decrypt = convert($_GET['download_pass_hash'], EMINEO_ENCRYPTION_KEY);
+		$args = [
+			'post_type' => 'emineo_download',
+			'post_status' => 'publish',
+			'posts_per_page' => 1,
+			'meta_query' => [
+				[
+					'key' => 'password',
+					'value' => $decrypt
+				]
+			]
+		];
+		$downloads = get_posts($args);
+		if(!$downloads) {
+			wp_die(__("Cannot view the page!", 'emineo-theme'));
+		}
+	}
+	else if($downloads) {
+		wp_die(__("Cannot view the page!", 'emineo-theme'));
+	}
+});
+
+function convert($str,$ky=''){
+	if($ky=='')return $str;
+
+	$ky=str_replace(chr(32),'',$ky);
+	if(strlen($ky)<8)exit('key error');
+	$kl=strlen($ky)<32?strlen($ky):32;
+	$k=array();for($i=0;$i<$kl;$i++){
+	$k[$i]=ord($ky{$i})&0x1F;}
+	$j=0;for($i=0;$i<strlen($str);$i++){
+	$e=ord($str{$i});
+	$str{$i}=$e&0xE0?chr($e^$k[$j]):chr($e);
+	$j++;$j=$j==$kl?0:$j;}
+
+	return $str;
+}
