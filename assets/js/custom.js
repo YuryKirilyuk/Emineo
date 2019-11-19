@@ -42,6 +42,11 @@ jQuery(window).on('load', function () {
 
     jQuery('.elementor-accordion-item').first().addClass('active');
 
+    if(jQuery('.ast-breadcrumbs').length) {
+        var breadcrumbs = jQuery('.ast-breadcrumbs');
+        breadcrumbs.find('a[href*="story"]').attr('href', '/success-stories/');
+    }
+
 });
 
 
