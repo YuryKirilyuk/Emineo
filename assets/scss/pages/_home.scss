@@ -192,12 +192,14 @@
   padding: 70px 0 0;
 
   .elementor-heading-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.9rem;
   }
 
 
   .elementor-widget-image-box {
     height: 100%;
+    margin: auto;
+    max-width: 300px;
 
     .elementor-widget-container {
       height: 100%;
@@ -213,8 +215,18 @@
           display: flex;
           flex: 1;
           justify-content: center;
-          margin-bottom: 30px;
+          margin-bottom: 35px;
+          body:not(.home) & {
+            align-items: flex-start;
+          }
         }
+        body:not(.home) & .elementor-image-box-content {
+          align-items: center;
+          display: flex;
+          flex: 1;
+          justify-content: center;
+        }
+
         .elementor-image-box-title {
           font-family: $base-font-family;
           font-size: 18px;
@@ -225,9 +237,10 @@
           @media screen and (max-width: 768px) {margin-bottom: 30px;}
 
         }
-      }
 
-    }
+      }//.elementor-image-box-wrapper
+
+    }//.elementor-widget-container
 
   }//.elementor-widget-image-box
 
