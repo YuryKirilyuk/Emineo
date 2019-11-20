@@ -489,6 +489,9 @@ function get_single_item_html($post, $taxonomy = '', $taxonomy2 = '') {
 					if(has_post_thumbnail($post)) {
 						echo get_the_post_thumbnail($post, 'medium_large');
 					}
+					else {
+					    echo '<img src="' . get_bloginfo('stylesheet_directory') . '/assets/img/placeholder.png' . '" />';
+                    }
 					?>
 				</a>
 			</div>
