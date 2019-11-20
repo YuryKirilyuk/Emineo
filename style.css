@@ -756,9 +756,9 @@ body:not(.home) .section-branchenfokus .elementor-widget-image-box .elementor-wi
 
 .success-stories-filter li ul a:hover { background: #f9f9f9; }
 
-.story-items-inner-container { -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; grid-column-gap: 30px; grid-row-gap: 35px; -ms-grid-columns: (1fr)[2]; grid-template-columns: repeat(2, 1fr); display: -ms-grid; display: grid; font-size: 16px; }
+.story-items-inner-container { -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; grid-column-gap: 30px; grid-row-gap: 35px; -ms-grid-columns: 48% 48%; grid-template-columns: 48% 48%; display: -ms-grid; display: grid; font-size: 16px; }
 
-@media screen and (max-width: 767px) { .story-items-inner-container { -webkit-align-items: stretch; -ms-flex-align: stretch; align-items: stretch; -ms-grid-columns: (1fr)[1]; grid-template-columns: repeat(1, 1fr); } }
+@media screen and (max-width: 767px) { .story-items-inner-container { -webkit-align-items: stretch; -ms-flex-align: stretch; align-items: stretch; -ms-grid-columns: 100%; grid-template-columns: 100%; } }
 
 .story-items-inner-container .single-item-inner-container { position: relative; }
 
@@ -776,9 +776,9 @@ body:not(.home) .section-branchenfokus .elementor-widget-image-box .elementor-wi
 
 .story-items-inner-container .single-item-title a { color: #fff; display: block; font-size: 21px; font-weight: 400; text-transform: capitalize; line-height: 31px; }
 
-.story-items-inner-container .single-item-badge { background-color: #e1e2e9; border-radius: 0; color: #D6501F; font-weight: bold; left: 0; line-height: 1; margin: 20px; padding: .6em 1.2em; position: absolute; top: 0; text-transform: uppercase; }
+.story-items-inner-container .single-item-badge { background-color: #e1e2e9; border-radius: 0; color: #D6501F; font-weight: bold; left: 0; line-height: 1; margin: 20px; max-width: calc(50% - 20px); padding: .6em 1.2em; position: absolute; top: 0; text-transform: uppercase; }
 
-.story-items-inner-container .single-item-date { color: #fff; font-weight: bold; line-height: 40px; padding: 20px; position: absolute; right: 0; text-transform: uppercase; top: 0; }
+.story-items-inner-container .single-item-date { color: #fff; font-weight: bold; line-height: normal; max-width: 55%; padding: 20px; position: absolute; right: 0; text-transform: uppercase; top: 0; }
 
 .story-items-inner-container .single-item-description { background: #eff1f4; padding: 20px; }
 
